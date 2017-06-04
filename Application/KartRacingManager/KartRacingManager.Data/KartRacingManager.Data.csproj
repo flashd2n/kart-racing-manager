@@ -53,5 +53,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KartRacingManager.Interfaces\KartRacingManager.Interfaces.csproj">
+      <Project>{cda5cd9f-6e46-40c8-9e04-8c8bf4f5c7b3}</Project>
+      <Name>KartRacingManager.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,5 +54,23 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KartRacingManager.ConsoleClient\KartRacingManager.ConsoleClient.csproj">
+      <Project>{5d7c64dd-9a54-440a-91f0-d0c60de5403b}</Project>
+      <Name>KartRacingManager.ConsoleClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Exports\KartRacingManager.Exports.csproj">
+      <Project>{a5ce31eb-c16c-4d47-b682-3cc3aa1f3c04}</Project>
+      <Name>KartRacingManager.Exports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Imports\KartRacingManager.Imports.csproj">
+      <Project>{eaf47982-ef4a-4927-ab87-88bc4c6223d2}</Project>
+      <Name>KartRacingManager.Imports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Interfaces\KartRacingManager.Interfaces.csproj">
+      <Project>{cda5cd9f-6e46-40c8-9e04-8c8bf4f5c7b3}</Project>
+      <Name>KartRacingManager.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -56,5 +56,27 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KarRacingManager.Models\KarRacingManager.Models.csproj">
+      <Project>{3d3dab09-6b82-4751-8355-8c1b40f66e10}</Project>
+      <Name>KarRacingManager.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Data\KartRacingManager.Data.csproj">
+      <Project>{2772a82f-abf3-4aff-aba4-e30d816d6c35}</Project>
+      <Name>KartRacingManager.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Exports\KartRacingManager.Exports.csproj">
+      <Project>{a5ce31eb-c16c-4d47-b682-3cc3aa1f3c04}</Project>
+      <Name>KartRacingManager.Exports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Imports\KartRacingManager.Imports.csproj">
+      <Project>{eaf47982-ef4a-4927-ab87-88bc4c6223d2}</Project>
+      <Name>KartRacingManager.Imports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Interfaces\KartRacingManager.Interfaces.csproj">
+      <Project>{cda5cd9f-6e46-40c8-9e04-8c8bf4f5c7b3}</Project>
+      <Name>KartRacingManager.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
