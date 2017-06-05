@@ -16,5 +16,6 @@ namespace KarRacingManager.Models
 
         public virtual Address Address { get; set; }
 
+        public virtual DetailedRacersInformation DetailedInformation { get; set; }
     }
 }

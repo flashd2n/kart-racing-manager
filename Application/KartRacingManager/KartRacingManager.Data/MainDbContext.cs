@@ -22,5 +22,14 @@ namespace KartRacingManager.Data
         public DbSet<City> Cities { get; set; }
 
         public DbSet<Country> Countries { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Racer>()
+                .HasOptional(s => s.DetailedInformation)
+                .WithRequired(ad => ad.Racer);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
