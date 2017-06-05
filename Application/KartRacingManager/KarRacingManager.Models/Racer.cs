@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KarRacingManager.Models
@@ -17,8 +18,12 @@ namespace KarRacingManager.Models
 
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(60)]
         public string FirstName { get; set; }
 
+        [Required]
+        [MaxLength(60)]
         public string LastName { get; set; }
 
         public DateTime DateOfBirth { get; set; }

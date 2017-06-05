@@ -72,6 +72,14 @@
     <Compile Include="Migrations\201706051210434_AddedRaceStatuses.Designer.cs">
       <DependentUpon>201706051210434_AddedRaceStatuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706051234393_SetRacerConstraints.cs" />
+    <Compile Include="Migrations\201706051234393_SetRacerConstraints.Designer.cs">
+      <DependentUpon>201706051234393_SetRacerConstraints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051249055_AddedAllConstraints.cs" />
+    <Compile Include="Migrations\201706051249055_AddedAllConstraints.Designer.cs">
+      <DependentUpon>201706051249055_AddedAllConstraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706051210434_AddedRaceStatuses.resx">
       <DependentUpon>201706051210434_AddedRaceStatuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051234393_SetRacerConstraints.resx">
+      <DependentUpon>201706051234393_SetRacerConstraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051249055_AddedAllConstraints.resx">
+      <DependentUpon>201706051249055_AddedAllConstraints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,10 +9,10 @@ namespace KarRacingManager.Models
     public class DetailedRacersInformation
     {
         public int Id { get; set; }
+        
+        public double? Weight { get; set; }
 
-        public double Weight { get; set; }
-
-        public double Height { get; set; }
+        public double? Height { get; set; }
 
         public virtual Racer Racer { get; set; }
     }
