@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KartRacingManager.ConsoleClient
+﻿namespace KartRacingManager.ConsoleClient
 {
-    class Startup
+    public class Startup
     {
         static void Main()
         {
