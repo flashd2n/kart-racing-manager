@@ -56,6 +56,22 @@
     <Compile Include="Migrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.Designer.cs">
       <DependentUpon>201706051033483_AddedOneToOneRelationRacerMoreInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706051103047_AddedLapsAndTracks.cs" />
+    <Compile Include="Migrations\201706051103047_AddedLapsAndTracks.Designer.cs">
+      <DependentUpon>201706051103047_AddedLapsAndTracks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051151465_AddedRaces.cs" />
+    <Compile Include="Migrations\201706051151465_AddedRaces.Designer.cs">
+      <DependentUpon>201706051151465_AddedRaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051158201_AddLapRaceRelation.cs" />
+    <Compile Include="Migrations\201706051158201_AddLapRaceRelation.Designer.cs">
+      <DependentUpon>201706051158201_AddLapRaceRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051210434_AddedRaceStatuses.cs" />
+    <Compile Include="Migrations\201706051210434_AddedRaceStatuses.Designer.cs">
+      <DependentUpon>201706051210434_AddedRaceStatuses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +95,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.resx">
       <DependentUpon>201706051033483_AddedOneToOneRelationRacerMoreInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051103047_AddedLapsAndTracks.resx">
+      <DependentUpon>201706051103047_AddedLapsAndTracks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051151465_AddedRaces.resx">
+      <DependentUpon>201706051151465_AddedRaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051158201_AddLapRaceRelation.resx">
+      <DependentUpon>201706051158201_AddLapRaceRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051210434_AddedRaceStatuses.resx">
+      <DependentUpon>201706051210434_AddedRaceStatuses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
