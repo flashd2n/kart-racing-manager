@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarRacingManager.Models", "KarRacingManager.Models\KarRacingManager.Models.csproj", "{3D3DAB09-6B82-4751-8355-8C1B40F66E10}"
 EndProject
@@ -16,6 +16,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Interfaces", "KartRacingManager.Interfaces\KartRacingManager.Interfaces.csproj", "{CDA5CD9F-6E46-40C8-9E04-8C8BF4F5C7B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Exports", "KartRacingManager.Exports\KartRacingManager.Exports.csproj", "{A5CE31EB-C16C-4D47-B682-3CC3AA1F3C04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Commands", "KartRacingManager.Commands\KartRacingManager.Commands.csproj", "{4179F467-7937-4DDD-88FB-973B6E4E5EBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Providers", "KartRacingManager.Providers\KartRacingManager.Providers.csproj", "{B475FB46-7905-48CA-B253-E1FF75A2D7E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Engine", "KartRacingManager.Engine\KartRacingManager.Engine.csproj", "{8707CD03-43C1-4B81-88B2-7D221E62131E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,18 @@ Global
 		{A5CE31EB-C16C-4D47-B682-3CC3AA1F3C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5CE31EB-C16C-4D47-B682-3CC3AA1F3C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5CE31EB-C16C-4D47-B682-3CC3AA1F3C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4179F467-7937-4DDD-88FB-973B6E4E5EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4179F467-7937-4DDD-88FB-973B6E4E5EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4179F467-7937-4DDD-88FB-973B6E4E5EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4179F467-7937-4DDD-88FB-973B6E4E5EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B475FB46-7905-48CA-B253-E1FF75A2D7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B475FB46-7905-48CA-B253-E1FF75A2D7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B475FB46-7905-48CA-B253-E1FF75A2D7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B475FB46-7905-48CA-B253-E1FF75A2D7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
