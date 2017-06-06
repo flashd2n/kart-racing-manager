@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PostgreSqlModels\Kart.cs" />
+    <Compile Include="PostgreSqlModels\TransmissionType.cs" />
     <Compile Include="SqlServerModels\Address.cs" />
     <Compile Include="SqlServerModels\City.cs" />
     <Compile Include="SqlServerModels\Country.cs" />

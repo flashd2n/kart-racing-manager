@@ -6,59 +6,60 @@ using System.Text;
 
 namespace KartRacingManager.Data.Migrations
 {
-    public sealed class Configuration : DbMigrationsConfiguration<MainDbContext>
+    public sealed class MainDbConfig : DbMigrationsConfiguration<MainDbContext>
     {
-        public Configuration()
+        public MainDbConfig()
         {
             this.AutomaticMigrationsEnabled = false;
             this.AutomaticMigrationDataLossAllowed = false;
+            MigrationsDirectory = @"SqlServerMigrations";
         }
 
         protected override void Seed(MainDbContext context)
         {
-            var startDate = DateTime.Parse("2017/06/06 18:37:58");
+            //var startDate = DateTime.Parse("2017/06/06 18:37:58");
 
-            for (int i = 0; i < 10; i++)
-            {
-                var lap = new Lap();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    var lap = new Lap();
 
-                lap.StartTime = startDate.AddDays(i);
+            //    lap.StartTime = startDate.AddDays(i);
 
-                lap.FinishTime = DateTime.Now.AddDays(i + 1);
+            //    lap.FinishTime = DateTime.Now.AddDays(i + 1);
 
-                lap.Racer = this.CreateRacer(context, i);
+            //    lap.Racer = this.CreateRacer(context, i);
 
-                lap.Track = this.CreateTrack(context, i);
+            //    lap.Track = this.CreateTrack(context, i);
 
-                context.Laps.AddOrUpdate(l => l.StartTime, lap);
-            }
+            //    context.Laps.AddOrUpdate(l => l.StartTime, lap);
+            //}
 
-            //TODO pending race
+            ////TODO pending race
 
-            var race = new Race();
-            race.Name = "Seed Pending Race";
-            race.StartTime = DateTime.Now.AddDays(1);
-            race.LapCount = 10;
-            race.RaceStatus = RaceStatus.Pending;
-            var raceStatusParam = "Pending";
-            race.Track = this.CreateTrack(context, raceStatusParam);
+            //var race = new Race();
+            //race.Name = "Seed Pending Race";
+            //race.StartTime = DateTime.Now.AddDays(1);
+            //race.LapCount = 10;
+            //race.RaceStatus = RaceStatus.Pending;
+            //var raceStatusParam = "Pending";
+            //race.Track = this.CreateTrack(context, raceStatusParam);
 
-            context.Races.AddOrUpdate(r => r.Name, race);
+            //context.Races.AddOrUpdate(r => r.Name, race);
 
-            //TODO completed race
+            ////TODO completed race
 
-            var raceCompleted = new Race();
-            raceCompleted.Name = "Seed Completed Race";
-            raceCompleted.StartTime = DateTime.Now.AddDays(1);
-            raceCompleted.EndTime = DateTime.Now.AddDays(2);
-            raceCompleted.LapCount = 5;
-            raceCompleted.RaceStatus = RaceStatus.Completed;
-            var raceCompletedParam = "Completed";
-            raceCompleted.Track = this.CreateTrack(context, raceCompletedParam);
+            //var raceCompleted = new Race();
+            //raceCompleted.Name = "Seed Completed Race";
+            //raceCompleted.StartTime = DateTime.Now.AddDays(1);
+            //raceCompleted.EndTime = DateTime.Now.AddDays(2);
+            //raceCompleted.LapCount = 5;
+            //raceCompleted.RaceStatus = RaceStatus.Completed;
+            //var raceCompletedParam = "Completed";
+            //raceCompleted.Track = this.CreateTrack(context, raceCompletedParam);
 
-            context.Races.AddOrUpdate(r => r.Name, raceCompleted);
+            //context.Races.AddOrUpdate(r => r.Name, raceCompleted);
 
-            //this.SaveChanges(context);
+            ////this.SaveChanges(context);
         }
 
         private Track CreateTrack(MainDbContext context, string raceStatusParam)

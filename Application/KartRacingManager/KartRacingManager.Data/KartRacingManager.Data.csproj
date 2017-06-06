@@ -56,48 +56,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KartDbContext.cs" />
     <Compile Include="MainDbContext.cs" />
-    <Compile Include="Migrations\201706050822354_Initial.cs" />
-    <Compile Include="Migrations\201706050822354_Initial.Designer.cs">
+    <Compile Include="PostgreSqlMigrations\201706062114216_Initial.cs" />
+    <Compile Include="PostgreSqlMigrations\201706062114216_Initial.Designer.cs">
+      <DependentUpon>201706062114216_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerMigrations\201706050822354_Initial.cs" />
+    <Compile Include="SqlServerMigrations\201706050822354_Initial.Designer.cs">
       <DependentUpon>201706050822354_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.cs" />
-    <Compile Include="Migrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.cs" />
+    <Compile Include="SqlServerMigrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.Designer.cs">
       <DependentUpon>201706051033483_AddedOneToOneRelationRacerMoreInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051103047_AddedLapsAndTracks.cs" />
-    <Compile Include="Migrations\201706051103047_AddedLapsAndTracks.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051103047_AddedLapsAndTracks.cs" />
+    <Compile Include="SqlServerMigrations\201706051103047_AddedLapsAndTracks.Designer.cs">
       <DependentUpon>201706051103047_AddedLapsAndTracks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051151465_AddedRaces.cs" />
-    <Compile Include="Migrations\201706051151465_AddedRaces.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051151465_AddedRaces.cs" />
+    <Compile Include="SqlServerMigrations\201706051151465_AddedRaces.Designer.cs">
       <DependentUpon>201706051151465_AddedRaces.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051158201_AddLapRaceRelation.cs" />
-    <Compile Include="Migrations\201706051158201_AddLapRaceRelation.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051158201_AddLapRaceRelation.cs" />
+    <Compile Include="SqlServerMigrations\201706051158201_AddLapRaceRelation.Designer.cs">
       <DependentUpon>201706051158201_AddLapRaceRelation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051210434_AddedRaceStatuses.cs" />
-    <Compile Include="Migrations\201706051210434_AddedRaceStatuses.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051210434_AddedRaceStatuses.cs" />
+    <Compile Include="SqlServerMigrations\201706051210434_AddedRaceStatuses.Designer.cs">
       <DependentUpon>201706051210434_AddedRaceStatuses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051234393_SetRacerConstraints.cs" />
-    <Compile Include="Migrations\201706051234393_SetRacerConstraints.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051234393_SetRacerConstraints.cs" />
+    <Compile Include="SqlServerMigrations\201706051234393_SetRacerConstraints.Designer.cs">
       <DependentUpon>201706051234393_SetRacerConstraints.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706051249055_AddedAllConstraints.cs" />
-    <Compile Include="Migrations\201706051249055_AddedAllConstraints.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706051249055_AddedAllConstraints.cs" />
+    <Compile Include="SqlServerMigrations\201706051249055_AddedAllConstraints.Designer.cs">
       <DependentUpon>201706051249055_AddedAllConstraints.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs" />
-    <Compile Include="Migrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs" />
+    <Compile Include="SqlServerMigrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.Designer.cs">
       <DependentUpon>201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706060838440_AddedRaceName.cs" />
-    <Compile Include="Migrations\201706060838440_AddedRaceName.Designer.cs">
+    <Compile Include="SqlServerMigrations\201706060838440_AddedRaceName.cs" />
+    <Compile Include="SqlServerMigrations\201706060838440_AddedRaceName.Designer.cs">
       <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="SqlServerMigrations\MainDbConfig.cs" />
+    <Compile Include="PostgreSqlMigrations\KartsDbConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -115,34 +121,37 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706050822354_Initial.resx">
+    <EmbeddedResource Include="PostgreSqlMigrations\201706062114216_Initial.resx">
+      <DependentUpon>201706062114216_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqlServerMigrations\201706050822354_Initial.resx">
       <DependentUpon>201706050822354_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051033483_AddedOneToOneRelationRacerMoreInformation.resx">
       <DependentUpon>201706051033483_AddedOneToOneRelationRacerMoreInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051103047_AddedLapsAndTracks.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051103047_AddedLapsAndTracks.resx">
       <DependentUpon>201706051103047_AddedLapsAndTracks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051151465_AddedRaces.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051151465_AddedRaces.resx">
       <DependentUpon>201706051151465_AddedRaces.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051158201_AddLapRaceRelation.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051158201_AddLapRaceRelation.resx">
       <DependentUpon>201706051158201_AddLapRaceRelation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051210434_AddedRaceStatuses.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051210434_AddedRaceStatuses.resx">
       <DependentUpon>201706051210434_AddedRaceStatuses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051234393_SetRacerConstraints.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051234393_SetRacerConstraints.resx">
       <DependentUpon>201706051234393_SetRacerConstraints.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706051249055_AddedAllConstraints.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706051249055_AddedAllConstraints.resx">
       <DependentUpon>201706051249055_AddedAllConstraints.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.resx">
       <DependentUpon>201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706060838440_AddedRaceName.resx">
+    <EmbeddedResource Include="SqlServerMigrations\201706060838440_AddedRaceName.resx">
       <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
