@@ -80,6 +80,14 @@
     <Compile Include="Migrations\201706051249055_AddedAllConstraints.Designer.cs">
       <DependentUpon>201706051249055_AddedAllConstraints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs" />
+    <Compile Include="Migrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.Designer.cs">
+      <DependentUpon>201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706060838440_AddedRaceName.cs" />
+    <Compile Include="Migrations\201706060838440_AddedRaceName.Designer.cs">
+      <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -121,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706051249055_AddedAllConstraints.resx">
       <DependentUpon>201706051249055_AddedAllConstraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.resx">
+      <DependentUpon>201706060824236_FixedDetailedInfoNameAddedNullableDatetimeRace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060838440_AddedRaceName.resx">
+      <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -46,6 +46,10 @@ namespace KartRacingManager.Data
             modelBuilder.Entity<Race>()
                 .Property(race => race.EndTime)
                 .IsOptional();
+            modelBuilder.Entity<Race>()
+                .Property(race => race.Name)
+                .IsRequired()
+                .HasMaxLength(100);
         }
 
         private void OnCountryBuilding(DbModelBuilder modelBuilder)
