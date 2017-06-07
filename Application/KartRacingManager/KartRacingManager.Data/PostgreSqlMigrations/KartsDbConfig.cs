@@ -1,11 +1,8 @@
 namespace KartRacingManager.Data.PostgreSqlMigrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class KartsDbConfig : DbMigrationsConfiguration<KartRacingManager.Data.KartDbContext>
+    internal sealed class KartsDbConfig : DbMigrationsConfiguration<KartDbContext>
     {
         public KartsDbConfig()
         {
@@ -13,7 +10,7 @@ namespace KartRacingManager.Data.PostgreSqlMigrations
             MigrationsDirectory = @"PostgreSqlMigrations";
         }
 
-        protected override void Seed(KartRacingManager.Data.KartDbContext context)
+        protected override void Seed(KartDbContext context)
         {
         }
     }

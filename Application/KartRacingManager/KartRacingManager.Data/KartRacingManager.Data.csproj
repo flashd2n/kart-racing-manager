@@ -58,10 +58,11 @@
   <ItemGroup>
     <Compile Include="KartDbContext.cs" />
     <Compile Include="MainDbContext.cs" />
-    <Compile Include="PostgreSqlMigrations\201706062114216_Initial.cs" />
-    <Compile Include="PostgreSqlMigrations\201706062114216_Initial.Designer.cs">
-      <DependentUpon>201706062114216_Initial.cs</DependentUpon>
+    <Compile Include="PostgreSqlMigrations\201706071235037_init.cs" />
+    <Compile Include="PostgreSqlMigrations\201706071235037_init.Designer.cs">
+      <DependentUpon>201706071235037_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostgreSqlMigrations\KartsDbConfig.cs" />
     <Compile Include="SqlServerMigrations\201706050822354_Initial.cs" />
     <Compile Include="SqlServerMigrations\201706050822354_Initial.Designer.cs">
       <DependentUpon>201706050822354_Initial.cs</DependentUpon>
@@ -103,7 +104,6 @@
       <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerMigrations\MainDbConfig.cs" />
-    <Compile Include="PostgreSqlMigrations\KartsDbConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,8 +121,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PostgreSqlMigrations\201706062114216_Initial.resx">
-      <DependentUpon>201706062114216_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="PostgreSqlMigrations\201706071235037_init.resx">
+      <DependentUpon>201706071235037_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SqlServerMigrations\201706050822354_Initial.resx">
       <DependentUpon>201706050822354_Initial.cs</DependentUpon>
