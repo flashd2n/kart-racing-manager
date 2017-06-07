@@ -1,6 +1,7 @@
 ﻿using System;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
+using Bytes2you.Validation;
 
 namespace KartRacingManager.Commands.Commands
 {
@@ -10,10 +11,7 @@ namespace KartRacingManager.Commands.Commands
 
         public EchoCommand(IWriter writer)
         {
-            if (writer == null)
-            {
-                throw new ArgumentNullException("Writer provider is not provided.");
-            }
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
 
             this.writer = writer;
         }

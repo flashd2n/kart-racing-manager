@@ -1,6 +1,7 @@
 ﻿using KartRacingManager.Interfaces.Providers;
 using KartRacingManager.Interfaces.Commands;
 using System;
+using Bytes2you.Validation;
 
 namespace KartRacingManager.Commands.Commands
 {
@@ -10,6 +11,8 @@ namespace KartRacingManager.Commands.Commands
 
         public ShwangShwingCommand(IWriter writer)
         {
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
+
             this.writer = writer;
         }
 

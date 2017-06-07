@@ -4,6 +4,7 @@ using System.Reflection;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
 using KartRacingManager.Interfaces.Data;
+using Bytes2you.Validation;
 
 namespace KartRacingManager.Commands
 {
@@ -15,6 +16,9 @@ namespace KartRacingManager.Commands
 
         public CommandFactory(IMainDbContext mainDbContext, IWriter writer)
         {
+            Guard.WhenArgument(mainDbContext, "mainDbContext").IsNull().Throw();
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
+
             this.mainDbContext = mainDbContext;
             this.writer = writer;
         }

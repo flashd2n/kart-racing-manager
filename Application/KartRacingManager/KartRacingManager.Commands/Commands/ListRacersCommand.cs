@@ -4,6 +4,7 @@ using KartRacingManager.Data;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Data;
 using KartRacingManager.Interfaces.Providers;
+using Bytes2you.Validation;
 
 namespace KartRacingManager.Commands.Commands
 {
@@ -14,6 +15,9 @@ namespace KartRacingManager.Commands.Commands
 
         public ListRacersCommand(IMainDbContext mainDbContext, IWriter writer)
         {
+            Guard.WhenArgument(mainDbContext, "mainDbContext").IsNull().Throw();
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
+
             this.mainDbContext = mainDbContext;
             this.writer = writer;
         }
