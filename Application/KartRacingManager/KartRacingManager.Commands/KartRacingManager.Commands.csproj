@@ -31,7 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,10 +53,22 @@
     <Compile Include="CommandFactory.cs" />
     <Compile Include="Commands\EchoCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\ListRacersCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KarRacingManager.Models\KarRacingManager.Models.csproj">
+      <Project>{3d3dab09-6b82-4751-8355-8c1b40f66e10}</Project>
+      <Name>KarRacingManager.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Data\KartRacingManager.Data.csproj">
+      <Project>{2772A82F-ABF3-4AFF-ABA4-E30D816D6C35}</Project>
+      <Name>KartRacingManager.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KartRacingManager.Interfaces\KartRacingManager.Interfaces.csproj">
       <Project>{CDA5CD9F-6E46-40C8-9E04-8C8BF4F5C7B3}</Project>
       <Name>KartRacingManager.Interfaces</Name>

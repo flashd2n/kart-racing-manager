@@ -26,7 +26,7 @@ namespace KartRacingManager.Engine
                 writer.Write("Command: ");
 
                 string commandLine = this.reader.Read();
-                var commandParts = commandLine.Split(' ').ToList();
+                var commandParts = commandLine.Split(new Char[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
                 string commandName = commandParts[0];
 
                 ICommand command = this.commandFactory.GetCommand(commandName);
@@ -34,7 +34,15 @@ namespace KartRacingManager.Engine
                 if (command != null)
                 {
                     commandParts.RemoveAt(0);
-                    command.Execute(commandParts.ToArray());
+                    try
+                    {
+                        command.Execute(commandParts.ToArray());
+                    }
+                    catch (ArgumentException)
+                    {
+                        this.writer.Write("Invalid arguments");
+                        this.writer.Write(Environment.NewLine);
+                    }
                 }
 
                 if (commandName == "exit")
