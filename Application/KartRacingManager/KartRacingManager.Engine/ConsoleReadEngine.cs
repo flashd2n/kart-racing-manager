@@ -6,13 +6,13 @@ using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Engine
 {
-    public class DefaultEngine : IEngine
+    public class ConsoleReadEngine : IEngine
     {
         private readonly IReader reader;
         private readonly IWriter writer;
         private readonly ICommandFactory commandFactory;
 
-        public DefaultEngine(IReader reader, IWriter writer, ICommandFactory commandFactory)
+        public ConsoleReadEngine(IReader reader, IWriter writer, ICommandFactory commandFactory)
         {
             this.reader = reader;
             this.writer = writer;
@@ -27,6 +27,12 @@ namespace KartRacingManager.Engine
 
                 string commandLine = this.reader.Read();
                 var commandParts = commandLine.Split(new Char[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+                if (commandParts.Count <= 0)
+                {
+                    continue;
+                }
+
                 string commandName = commandParts[0];
 
                 ICommand command = this.commandFactory.GetCommand(commandName);

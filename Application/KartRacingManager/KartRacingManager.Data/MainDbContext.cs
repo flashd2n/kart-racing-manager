@@ -1,9 +1,10 @@
 ﻿using KarRacingManager.Models;
+using KartRacingManager.Interfaces.Data;
 using System.Data.Entity;
 
 namespace KartRacingManager.Data
 {
-    public class MainDbContext : DbContext
+    public class MainDbContext : DbContext, IMainDbContext
     {
         public MainDbContext() : base("MainKartDb")
         {

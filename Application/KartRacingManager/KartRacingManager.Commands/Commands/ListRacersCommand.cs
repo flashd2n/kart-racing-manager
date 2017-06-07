@@ -2,6 +2,7 @@
 using System.Linq;
 using KartRacingManager.Data;
 using KartRacingManager.Interfaces.Commands;
+using KartRacingManager.Interfaces.Data;
 using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Commands.Commands
@@ -9,16 +10,18 @@ namespace KartRacingManager.Commands.Commands
     public class ListRacersCommand : ICommand
     {
         private readonly IWriter writer;
+        private readonly IMainDbContext mainDbContext;
 
-        public ListRacersCommand(IWriter writer)
+        public ListRacersCommand(IMainDbContext mainDbContext, IWriter writer)
         {
+            this.mainDbContext = mainDbContext;
             this.writer = writer;
         }
 
         public void Execute(params string[] commandParameters)
         {
             int startIndex = 0;
-            int endIndex = 100;
+            int endIndex = int.MaxValue - 1;
 
             try
             {

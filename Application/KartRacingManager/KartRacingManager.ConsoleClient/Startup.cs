@@ -1,9 +1,5 @@
-﻿using KartRacingManager.Interfaces.Commands;
-using KartRacingManager.Interfaces.Engine;
-using KartRacingManager.Interfaces.Providers;
-using KartRacingManager.Providers;
-using KartRacingManager.Commands;
-using KartRacingManager.Engine;
+﻿using KartRacingManager.Interfaces.Engine;
+using Ninject;
 
 namespace KartRacingManager.ConsoleClient
 {
@@ -11,10 +7,9 @@ namespace KartRacingManager.ConsoleClient
     {
         static void Main()
         {
-            IReader reader = new ConsoleReader();
-            IWriter writer = new ConsoleWriter();
-            ICommandFactory commandFactory = new CommandFactory(writer);
-            IEngine engine = new DefaultEngine(reader, writer, commandFactory);
+            IKernel kernel = new StandardKernel(new KartRacingManagerNinjectModule());
+
+            IEngine engine = kernel.Get<IEngine>();
 
             engine.Run();
         }

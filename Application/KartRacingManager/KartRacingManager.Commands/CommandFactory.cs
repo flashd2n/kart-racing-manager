@@ -3,15 +3,19 @@ using System.Linq;
 using System.Reflection;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
+using KartRacingManager.Interfaces.Data;
 
 namespace KartRacingManager.Commands
 {
     public class CommandFactory : ICommandFactory
     {
+        private readonly IMainDbContext mainDbContext;
         private readonly IWriter writer;
+        
 
-        public CommandFactory(IWriter writer)
+        public CommandFactory(IMainDbContext mainDbContext, IWriter writer)
         {
+            this.mainDbContext = mainDbContext;
             this.writer = writer;
         }
 
@@ -28,11 +32,29 @@ namespace KartRacingManager.Commands
             }
             else
             {
-                ConstructorInfo constructor = commandTypeInfo.GetConstructor(new Type[] {
+                ConstructorInfo constructor;
+
+                constructor = commandTypeInfo.GetConstructor(new Type[] {
+                    typeof(IMainDbContext),
                     typeof(IWriter)
                 });
-                ICommand command = constructor.Invoke(new object[] {this.writer}) as ICommand;
-                return command;
+                if (constructor != null)
+                {
+                    ICommand command = constructor.Invoke(new object[]
+                    {
+                        this.mainDbContext, this.writer
+                    }) as ICommand;
+                    return command;
+                }
+
+                constructor = commandTypeInfo.GetConstructor(new Type[] { typeof(IWriter) });
+                if (constructor != null)
+                {
+                    ICommand command = constructor.Invoke(new object[] { this.writer }) as ICommand;
+                    return command;
+                }
+
+                throw new InvalidOperationException($"Command {commandName} found but no appropriate constructor found");
             }
         }
     }
