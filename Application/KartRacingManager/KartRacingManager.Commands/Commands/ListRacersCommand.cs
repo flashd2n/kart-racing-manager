@@ -62,7 +62,7 @@ namespace KartRacingManager.Commands.Commands
 
             if (racers.Count <= 0)
             {
-                this.writer.Write("No racers in this range");
+                this.writer.Write($"No racers in this range ({startIndex + 1} to {endIndex + 1}).");
                 this.writer.Write(Environment.NewLine);
             }
             else
