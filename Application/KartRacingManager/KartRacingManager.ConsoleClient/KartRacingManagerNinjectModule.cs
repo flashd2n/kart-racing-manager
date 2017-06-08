@@ -16,6 +16,7 @@ namespace KartRacingManager.ConsoleClient
         {
             this.Bind<IEngine>().To<ConsoleReadEngine>().InSingletonScope();
             this.Bind<IMainDbContext>().To<MainDbContext>().InSingletonScope();
+            this.Bind<IMainUnitOfWork>().To<MainUnitOfWork>().InSingletonScope();
             this.Bind<IReader>().To<ConsoleReader>();
             this.Bind<IWriter>().To<ConsoleWriter>();
             this.Bind<ICommandFactory>().To<CommandFactory>();

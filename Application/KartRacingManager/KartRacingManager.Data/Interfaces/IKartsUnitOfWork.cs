@@ -2,7 +2,7 @@
 
 namespace KartRacingManager.Data.Interfaces
 {
-    public interface IKartsUnitOfWork
+    public interface IKartsUnitOfWork : IUnitOfWork
     {
         KartsRepository RacersRepo { get; }
 

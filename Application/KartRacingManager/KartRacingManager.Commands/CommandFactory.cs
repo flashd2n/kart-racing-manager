@@ -10,16 +10,16 @@ namespace KartRacingManager.Commands
 {
     public class CommandFactory : ICommandFactory
     {
-        private readonly IMainDbContext mainDbContext;
+        private readonly IMainUnitOfWork mainUnitOfWork;
         private readonly IWriter writer;
         
 
-        public CommandFactory(IMainDbContext mainDbContext, IWriter writer)
+        public CommandFactory(IMainUnitOfWork mainUnitOfWork, IWriter writer)
         {
-            Guard.WhenArgument(mainDbContext, "mainDbContext").IsNull().Throw();
+            Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
 
-            this.mainDbContext = mainDbContext;
+            this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
         }
 
@@ -39,14 +39,14 @@ namespace KartRacingManager.Commands
                 ConstructorInfo constructor;
 
                 constructor = commandTypeInfo.GetConstructor(new Type[] {
-                    typeof(IMainDbContext),
+                    typeof(IMainUnitOfWork),
                     typeof(IWriter)
                 });
                 if (constructor != null)
                 {
                     ICommand command = constructor.Invoke(new object[]
                     {
-                        this.mainDbContext, this.writer
+                        this.mainUnitOfWork, this.writer
                     }) as ICommand;
                     return command;
                 }

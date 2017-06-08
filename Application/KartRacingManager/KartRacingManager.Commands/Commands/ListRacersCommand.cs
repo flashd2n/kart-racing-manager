@@ -11,14 +11,14 @@ namespace KartRacingManager.Commands.Commands
     public class ListRacersCommand : ICommand
     {
         private readonly IWriter writer;
-        private readonly IMainDbContext mainDbContext;
+        private readonly IMainUnitOfWork mainUnitOfWork;
 
-        public ListRacersCommand(IMainDbContext mainDbContext, IWriter writer)
+        public ListRacersCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
         {
-            Guard.WhenArgument(mainDbContext, "mainDbContext").IsNull().Throw();
+            Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
 
-            this.mainDbContext = mainDbContext;
+            this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
         }
 
@@ -56,9 +56,7 @@ namespace KartRacingManager.Commands.Commands
                 throw argException;
             }
 
-            var dbContext = new MainDbContext();
-
-            var racers = dbContext.Racers
+            var racers = this.mainUnitOfWork.RacersRepo.All
                 .OrderBy(r => r.Id)
                 .Skip(startIndex)
                 .Take(endIndex - startIndex + 1)
@@ -66,7 +64,7 @@ namespace KartRacingManager.Commands.Commands
 
             if (racers.Count <= 0)
             {
-                this.writer.Write($"No racers in this range ({startIndex + 1} to {endIndex + 1}).");
+                this.writer.Write($"No racers in range starting from {startIndex + 1}.");
                 this.writer.Write(Environment.NewLine);
             }
             else
