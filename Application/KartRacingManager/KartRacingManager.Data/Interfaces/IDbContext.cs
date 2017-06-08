@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-namespace KartRacingManager.Interfaces.Data
+namespace KartRacingManager.Data.Interfaces
 {
     public interface IDbContext
     {

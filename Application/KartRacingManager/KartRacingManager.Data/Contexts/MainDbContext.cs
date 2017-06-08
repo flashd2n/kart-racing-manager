@@ -1,5 +1,5 @@
 ﻿using KarRacingManager.Models;
-using KartRacingManager.Interfaces.Data;
+using KartRacingManager.Data.Interfaces;
 using System.Data.Entity;
 
 namespace KartRacingManager.Data

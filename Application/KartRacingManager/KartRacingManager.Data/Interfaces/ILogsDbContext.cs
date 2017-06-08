@@ -1,7 +1,7 @@
 ﻿using KarRacingManager.Models.SqliteModels;
 using System.Data.Entity;
 
-namespace KartRacingManager.Interfaces.Data
+namespace KartRacingManager.Data.Interfaces
 {
     public interface ILogsDbContext : IDbContext
     {

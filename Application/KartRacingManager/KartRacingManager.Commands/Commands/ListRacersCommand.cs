@@ -2,9 +2,9 @@
 using System.Linq;
 using KartRacingManager.Data;
 using KartRacingManager.Interfaces.Commands;
-using KartRacingManager.Interfaces.Data;
 using KartRacingManager.Interfaces.Providers;
 using Bytes2you.Validation;
+using KartRacingManager.Data.Interfaces;
 
 namespace KartRacingManager.Commands.Commands
 {

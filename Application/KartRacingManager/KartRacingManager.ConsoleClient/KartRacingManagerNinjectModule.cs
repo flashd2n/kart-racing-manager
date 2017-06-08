@@ -1,8 +1,8 @@
 ﻿using KartRacingManager.Commands;
 using KartRacingManager.Data;
+using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Engine;
 using KartRacingManager.Interfaces.Commands;
-using KartRacingManager.Interfaces.Data;
 using KartRacingManager.Interfaces.Engine;
 using KartRacingManager.Interfaces.Providers;
 using KartRacingManager.Providers;

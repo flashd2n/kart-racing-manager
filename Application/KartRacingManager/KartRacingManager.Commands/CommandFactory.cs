@@ -3,8 +3,8 @@ using System.Linq;
 using System.Reflection;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
-using KartRacingManager.Interfaces.Data;
 using Bytes2you.Validation;
+using KartRacingManager.Data.Interfaces;
 
 namespace KartRacingManager.Commands
 {

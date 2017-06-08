@@ -1,6 +1,6 @@
 ﻿using KarRacingManager.Models.SqliteModels;
+using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Data.SqliteMigrations;
-using KartRacingManager.Interfaces.Data;
 using System.Data.Entity;
 
 namespace KartRacingManager.Data
