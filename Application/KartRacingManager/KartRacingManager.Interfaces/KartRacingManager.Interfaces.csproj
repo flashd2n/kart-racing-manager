@@ -55,6 +55,7 @@
     <Compile Include="Data\IKartDbContext.cs" />
     <Compile Include="Data\ILogsDbContext.cs" />
     <Compile Include="Data\IMainDbContext.cs" />
+    <Compile Include="Data\IRepository.cs" />
     <Compile Include="Engine\IEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\IReader.cs" />

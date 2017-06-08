@@ -81,6 +81,7 @@
       <DependentUpon>201706071235037_init.cs</DependentUpon>
     </Compile>
     <Compile Include="PostgreSqlMigrations\KartsDbConfig.cs" />
+    <Compile Include="Repositories\EntityFrameworkRepository.cs" />
     <Compile Include="SqliteMigrations\201706071625598_Initial.cs" />
     <Compile Include="SqliteMigrations\201706071625598_Initial.Designer.cs">
       <DependentUpon>201706071625598_Initial.cs</DependentUpon>
