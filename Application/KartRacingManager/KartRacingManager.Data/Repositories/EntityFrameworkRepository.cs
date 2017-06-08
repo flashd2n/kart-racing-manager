@@ -7,13 +7,13 @@ namespace KartRacingManager.Data.Repositories
     public class EntityFrameworkRepository<TEntity> : IRepository<TEntity>
         where TEntity : class
     {
-        private readonly IDbContext data;
+        private readonly IDbContext context;
         private readonly IDbSet<TEntity> set;
 
-        public EntityFrameworkRepository(IDbContext data)
+        public EntityFrameworkRepository(IDbContext context)
         {
-            this.data = data;
-            this.set = data.Set<TEntity>();
+            this.context = context;
+            this.set = context.Set<TEntity>();
         }
 
         public void Add(TEntity entity)
@@ -43,12 +43,12 @@ namespace KartRacingManager.Data.Repositories
 
         public void SaveChanges()
         {
-            this.data.SaveChanges();
+            this.context.SaveChanges();
         }
 
         private void ChangeState(TEntity entity, EntityState state)
         {
-            var dbEntry = this.data.Entry(entity);
+            var dbEntry = this.context.Entry(entity);
             dbEntry.State = state;
         }
     }
