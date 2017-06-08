@@ -1,17 +1,25 @@
 ﻿using KarRacingManager.Models.PostgreSqlModels;
+using KartRacingManager.Interfaces.Data;
 using System.Data.Entity;
 
 namespace KartRacingManager.Data
 {
-    public class KartDbContext : DbContext
+    public class KartDbContext : DbContext, IKartDbContext
     {
         public KartDbContext() :base("PgsqlDb")
         {
 
         }
 
-        public DbSet<Kart> Karts { get; set; }
-        public DbSet<TransmissionType> TransmissionTypes { get; set; }
+        public IDbSet<Kart> Karts { get; set; }
+
+        public IDbSet<TransmissionType> TransmissionTypes { get; set; }
+
+        public new IDbSet<TEntity> Set<TEntity>()
+            where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

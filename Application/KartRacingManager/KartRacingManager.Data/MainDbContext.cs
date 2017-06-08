@@ -11,19 +11,25 @@ namespace KartRacingManager.Data
 
         }
 
-        public DbSet<Racer> Racers { get; set; }
+        public IDbSet<Racer> Racers { get; set; }
 
-        public DbSet<Address> Addresses { get; set; }
+        public IDbSet<Address> Addresses { get; set; }
 
-        public DbSet<City> Cities { get; set; }
+        public IDbSet<City> Cities { get; set; }
 
-        public DbSet<Country> Countries { get; set; }
+        public IDbSet<Country> Countries { get; set; }
 
-        public DbSet<Lap> Laps { get; set; }
+        public IDbSet<Lap> Laps { get; set; }
 
-        public DbSet<Race> Races { get; set; }
+        public IDbSet<Race> Races { get; set; }
 
-        public DbSet<Track> Tracks { get; set; }
+        public IDbSet<Track> Tracks { get; set; }
+
+        public new IDbSet<TEntity> Set<TEntity>()
+            where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
