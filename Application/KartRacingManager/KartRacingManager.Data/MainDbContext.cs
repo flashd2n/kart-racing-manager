@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace KartRacingManager.Data
 {
-    public class MainDbContext : DbContext, IMainDbContext
+    public class MainDbContext : DbContext, IMainDbContext, IDbContext
     {
         public MainDbContext() : base("MainKartDb")
         {

@@ -1,10 +1,9 @@
 ﻿using System.Data.Entity;
 using KarRacingManager.Models;
-using System.Data.Entity.Infrastructure;
 
 namespace KartRacingManager.Interfaces.Data
 {
-    public interface IMainDbContext
+    public interface IMainDbContext : IDbContext
     {
          IDbSet<Racer> Racers { get; set; }
         
@@ -19,11 +18,5 @@ namespace KartRacingManager.Interfaces.Data
          IDbSet<Race> Races { get; set; }
         
          IDbSet<Track> Tracks { get; set; }
-
-        IDbSet<TEntity> Set<TEntity>() where TEntity : class;
-
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
-
-        int SaveChanges();
     }
 }

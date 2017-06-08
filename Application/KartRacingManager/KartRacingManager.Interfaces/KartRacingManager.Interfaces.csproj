@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IKartDbContext.cs" />
     <Compile Include="Data\ILogsDbContext.cs" />
     <Compile Include="Data\IMainDbContext.cs" />

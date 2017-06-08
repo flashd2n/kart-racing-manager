@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace KartRacingManager.Data
 {
-    public class LogsDbContext : DbContext, ILogsDbContext
+    public class LogsDbContext : DbContext, ILogsDbContext, IDbContext
     {
         public LogsDbContext() : base("SqliteDb")
         {

@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace KartRacingManager.Data
 {
-    public class KartDbContext : DbContext, IKartDbContext
+    public class KartDbContext : DbContext, IKartDbContext, IDbContext
     {
         public KartDbContext() :base("PgsqlDb")
         {
