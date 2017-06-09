@@ -32,9 +32,16 @@ namespace KartRacingManager.Commands.Commands
 
             string firstName = commandParameters[0];
             string lastName = commandParameters[1];
-            // TODO: throw if invalid datetime
-            DateTime dateOfBirth = DateTime.Parse(commandParameters[2]);
-            // TODO: fix address with spaces
+            DateTime dateOfBirth;
+            try
+            {
+                dateOfBirth = DateTime.Parse(commandParameters[2]);
+            }
+            catch (FormatException)
+            {
+                throw new ArgumentException("Incorrect date format");
+            }
+
             string addressLocation = commandParameters[3];
             string cityName = commandParameters[4];
             string countryName = commandParameters[5];
