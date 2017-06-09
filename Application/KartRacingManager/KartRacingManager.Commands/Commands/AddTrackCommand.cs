@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Bytes2you.Validation;
 using KarRacingManager.Models;
 using KartRacingManager.Data.Interfaces;
@@ -8,13 +11,13 @@ using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Commands.Commands
 {
-    public class AddRacerCommand : ICommand
-
+    public class AddTrackCommand : ICommand
     {
+        
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
 
-        public AddRacerCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public AddTrackCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
@@ -25,30 +28,29 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
-            if (commandParameters.Length < 6)
+            if (commandParameters.Length < 5)
             {
                 this.writer.Write("Incorrect number of parameters.");
                 this.writer.Write(Environment.NewLine);
                 return;
             }
 
-            string firstName = commandParameters[0];
-            string lastName = commandParameters[1];
-            DateTime dateOfBirth;
+            string trackName = commandParameters[0];
+            double trackLength;
             try
             {
-                dateOfBirth = DateTime.Parse(commandParameters[2]);
+                trackLength = double.Parse(commandParameters[1]);
             }
             catch (FormatException)
             {
-                this.writer.Write("Incorrect date format");
+                this.writer.Write("Track length should be a number.");
                 this.writer.Write(Environment.NewLine);
                 return;
             }
 
-            string addressLocation = commandParameters[3];
-            string cityName = commandParameters[4];
-            string countryName = commandParameters[5];
+            string addressLocation = commandParameters[2];
+            string cityName = commandParameters[3];
+            string countryName = commandParameters[4];
 
             var country = this.mainUnitOfWork.CountriesRepo.All
                 .FirstOrDefault(c => c.Name.ToLower() == countryName.ToLower());
@@ -79,16 +81,16 @@ namespace KartRacingManager.Commands.Commands
                 address.City = city;
             }
 
-            var racer = new Racer
+            var track = new Track
             {
-                FirstName = firstName,
-                LastName = lastName,
-                DateOfBirth = dateOfBirth,
+                Name = trackName,
+                Length = trackLength,
                 Address = address
             };
 
-            this.mainUnitOfWork.RacersRepo.Add(racer);
+            this.mainUnitOfWork.TracksRepo.Add(track);
             this.mainUnitOfWork.Save();
         }
     }
 }
+

@@ -84,6 +84,10 @@
     <Compile Include="Interfaces\IMainDbContext.cs" />
     <Compile Include="Interfaces\IMainUnitOfWork.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="SqlServerMigrations\201706091527460_addLapTimeInMs_To_Laps.cs" />
+    <Compile Include="SqlServerMigrations\201706091527460_addLapTimeInMs_To_Laps.Designer.cs">
+      <DependentUpon>201706091527460_addLapTimeInMs_To_Laps.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitsOfWork\KartsUnitOfWork.cs" />
     <Compile Include="UnitsOfWork\LogsUnitOfWork.cs" />
     <Compile Include="Migrations\PostgreSqlMigrations\201706071235037_init.cs" />
@@ -201,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SqlServerMigrations\201706060838440_AddedRaceName.resx">
       <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqlServerMigrations\201706091527460_addLapTimeInMs_To_Laps.resx">
+      <DependentUpon>201706091527460_addLapTimeInMs_To_Laps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

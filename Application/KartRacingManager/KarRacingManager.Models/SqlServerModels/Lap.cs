@@ -15,6 +15,8 @@ namespace KarRacingManager.Models
 
         public DateTime FinishTime { get; set; }
 
+        public int LapTimeInMs { get; set; }
+
         public int RacerId { get; set; }
 
         public virtual Racer Racer { get; set; }

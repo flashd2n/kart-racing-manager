@@ -55,11 +55,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandFactory.cs" />
+    <Compile Include="Commands\AddRaceCommand.cs" />
     <Compile Include="Commands\AddRacerCommand.cs" />
+    <Compile Include="Commands\AddTrackCommand.cs" />
+    <Compile Include="Commands\CancelRaceCommand.cs" />
+    <Compile Include="Commands\FinishRaceCommand.cs" />
+    <Compile Include="Commands\GetRacerInformationCommand.cs" />
+    <Compile Include="Commands\GetTrackInformationCommand.cs" />
+    <Compile Include="Commands\ListRacesCommand.cs" />
+    <Compile Include="Commands\ListTracksCommand.cs" />
+    <Compile Include="Commands\SetRacerHeightCommand.cs" />
     <Compile Include="Commands\EchoCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\ListRacersCommand.cs" />
+    <Compile Include="Commands\SetRacerWeightCommand.cs" />
     <Compile Include="Commands\ShwangShwingCommand.cs" />
+    <Compile Include="Commands\StartRaceCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

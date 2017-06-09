@@ -46,9 +46,10 @@ namespace KartRacingManager.Engine
                     {
                         command.Execute(commandParts.ToArray());
                     }
-                    catch (ArgumentException)
+                    catch (Exception)
                     {
-                        this.writer.Write("Invalid arguments");
+                        this.writer.Write("Command execution error.");
+                        // TODO: log
                         this.writer.Write(Environment.NewLine);
                     }
                 }

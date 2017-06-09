@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Linq;
-using KartRacingManager.Data;
-using KartRacingManager.Interfaces.Commands;
-using KartRacingManager.Interfaces.Providers;
 using Bytes2you.Validation;
 using KartRacingManager.Data.Interfaces;
+using KartRacingManager.Interfaces.Commands;
+using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Commands.Commands
 {
-    public class ListRacersCommand : ICommand
+    public class ListTracksCommand : ICommand
     {
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
 
-        public ListRacersCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public ListTracksCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
@@ -32,7 +31,7 @@ namespace KartRacingManager.Commands.Commands
                 if (commandParameters.Length > 0)
                 {
                     startIndex = int.Parse(commandParameters[0]) - 1;
-                    
+
                 }
 
                 if (commandParameters.Length > 1)
@@ -57,25 +56,27 @@ namespace KartRacingManager.Commands.Commands
                 return;
             }
 
-            var racers = this.mainUnitOfWork.RacersRepo.All
-                .OrderBy(r => r.Id)
+            var tracks = this.mainUnitOfWork.TracksRepo.All
+                .OrderBy(t => t.Id)
                 .Skip(startIndex)
                 .Take(endIndex - startIndex + 1)
                 .ToList();
 
-            if (racers.Count <= 0)
+            if (tracks.Count <= 0)
             {
-                this.writer.Write($"No racers in range starting from {startIndex + 1}.");
+                this.writer.Write($"No tracks in range starting from {startIndex + 1}.");
                 this.writer.Write(Environment.NewLine);
             }
             else
             {
-                this.writer.Write($"Listing racers from {startIndex + 1} to {startIndex + racers.Count}.");
+                this.writer.Write($"Listing tracks from {startIndex + 1} to {startIndex + tracks.Count}.");
                 this.writer.Write(Environment.NewLine);
                 int positionIndicator = startIndex + 1;
-                for (int i = 0; i < racers.Count; i++)
+                for (int i = 0; i < tracks.Count; i++)
                 {
-                    this.writer.Write($"({positionIndicator}) Id: {racers[i].Id} - {racers[i].FirstName} {racers[i].LastName}");
+                    this.writer.Write($"({positionIndicator}) Id: {tracks[i].Id} - " +
+                                      $"{tracks[i].Name} " +
+                                      $"({tracks[i].Address.Location}, {tracks[i].Address.City.Name}, {tracks[i].Address.City.Country.Name})");
                     this.writer.Write(Environment.NewLine);
                     positionIndicator++;
                 }
