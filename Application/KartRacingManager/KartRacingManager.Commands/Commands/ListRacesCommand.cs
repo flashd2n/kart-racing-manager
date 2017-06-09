@@ -80,7 +80,7 @@ namespace KartRacingManager.Commands.Commands
                                       $"{races[i].RaceStatus}, " +
                                       $"Start time: {races[i].StartTime}, " +
                                       $"End Time: {endTimeAsString}," +
-                                      $"Laps: {races[i].Laps}; " +
+                                      $"Laps: {races[i].LapCount}; " +
                                       $"Track: {races[i].Track.Name}");
                     this.writer.Write(Environment.NewLine);
                     positionIndicator++;

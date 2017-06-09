@@ -57,9 +57,11 @@
     <Compile Include="CommandFactory.cs" />
     <Compile Include="Commands\AddRaceCommand.cs" />
     <Compile Include="Commands\AddRacerCommand.cs" />
+    <Compile Include="Commands\AddRacerToRaceCommand.cs" />
     <Compile Include="Commands\AddTrackCommand.cs" />
     <Compile Include="Commands\CancelRaceCommand.cs" />
     <Compile Include="Commands\FinishRaceCommand.cs" />
+    <Compile Include="Commands\GetRaceInformationCommand.cs" />
     <Compile Include="Commands\GetRacerInformationCommand.cs" />
     <Compile Include="Commands\GetTrackInformationCommand.cs" />
     <Compile Include="Commands\ListRacesCommand.cs" />
