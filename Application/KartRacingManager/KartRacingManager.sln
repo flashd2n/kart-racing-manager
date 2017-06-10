@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Providers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Engine", "KartRacingManager.Engine\KartRacingManager.Engine.csproj", "{8707CD03-43C1-4B81-88B2-7D221E62131E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartRacingManager.Logger", "KartRacingManager.Logger\KartRacingManager.Logger.csproj", "{E06C40D6-72BB-4E32-B954-8614448EF8A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8707CD03-43C1-4B81-88B2-7D221E62131E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06C40D6-72BB-4E32-B954-8614448EF8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06C40D6-72BB-4E32-B954-8614448EF8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06C40D6-72BB-4E32-B954-8614448EF8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06C40D6-72BB-4E32-B954-8614448EF8A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
