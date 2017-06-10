@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddLapCommand.cs" />
+    <Compile Include="Commands\AddLapCommand.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="Commands\AddKartCommand.cs" />
     <Compile Include="Commands\AddRaceCommand.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="Commands\GetRaceInformationCommand.cs" />
     <Compile Include="Commands\GetRacerInformationCommand.cs" />
     <Compile Include="Commands\GetTrackInformationCommand.cs" />
+    <Compile Include="Commands\ImportLapCommand.cs" />
     <Compile Include="Commands\ListKartsCommand.cs" />
     <Compile Include="Commands\ListRacesCommand.cs" />
     <Compile Include="Commands\ListTracksCommand.cs" />

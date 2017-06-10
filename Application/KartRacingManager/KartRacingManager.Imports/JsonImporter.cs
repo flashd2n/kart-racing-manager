@@ -1,15 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using KartRacingManager.Interfaces.Imports;
 
 namespace KartRacingManager.Imports
 {
-    public class JsonImporter : Importer
+    public class JsonImporter : Importer, IJsonImporter
     {
-        public JsonImporter(string path) : base(path)
-        {
-        }
-
         public override Dictionary<string, string> Execute()
         {
             string json = ReadJsonFile();

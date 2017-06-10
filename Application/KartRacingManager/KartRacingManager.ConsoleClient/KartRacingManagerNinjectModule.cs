@@ -2,8 +2,10 @@
 using KartRacingManager.Data;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Engine;
+using KartRacingManager.Imports;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Engine;
+using KartRacingManager.Interfaces.Imports;
 using KartRacingManager.Interfaces.Logger;
 using KartRacingManager.Interfaces.Providers;
 using KartRacingManager.Providers;
@@ -27,6 +29,8 @@ namespace KartRacingManager.ConsoleClient
             this.Bind<ILogger>().To<SqliteLogger>();
             this.Bind<ILogsUnitOfWork>().To<LogsUnitOfWork>();
             this.Bind<ILogsDbContext>().To<LogsDbContext>();
+            this.Bind<IJsonImporter>().To<JsonImporter>();
+            this.Bind<IXmlImporter>().To<XmlImporter>();
         }
     }
 }

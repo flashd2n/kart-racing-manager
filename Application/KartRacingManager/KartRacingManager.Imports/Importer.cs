@@ -8,11 +8,6 @@ namespace KartRacingManager.Imports
     {
         private string path;
 
-        public Importer(string path)
-        {
-            this.Path = path;
-        }
-
         public string Path
         {
             get

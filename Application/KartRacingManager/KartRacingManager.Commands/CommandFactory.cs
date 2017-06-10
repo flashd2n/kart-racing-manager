@@ -5,6 +5,7 @@ using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
 using Bytes2you.Validation;
 using KartRacingManager.Data.Interfaces;
+using KartRacingManager.Interfaces.Imports;
 
 namespace KartRacingManager.Commands
 {
@@ -13,16 +14,22 @@ namespace KartRacingManager.Commands
         private readonly IMainUnitOfWork mainUnitOfWork;
         private readonly IKartsUnitOfWork kartsUnitOfWork;
         private readonly IWriter writer;
+        private readonly IJsonImporter jsonImporter;
+        private readonly IXmlImporter xmlImporter;
 
 
-        public CommandFactory(IMainUnitOfWork mainUnitOfWork, IKartsUnitOfWork kartsUnitOfWork, IWriter writer)
+        public CommandFactory(IMainUnitOfWork mainUnitOfWork, IKartsUnitOfWork kartsUnitOfWork, IWriter writer, IJsonImporter jsonImporter, IXmlImporter xmlImporter)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(kartsUnitOfWork, "kartsUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(jsonImporter, "jsonImporter").IsNull().Throw();
+            Guard.WhenArgument(xmlImporter, "xmlImporter").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
+            this.jsonImporter = jsonImporter;
+            this.xmlImporter = xmlImporter;
             this.kartsUnitOfWork = kartsUnitOfWork;
         }
 
@@ -50,6 +57,20 @@ namespace KartRacingManager.Commands
                     ICommand command = constructor.Invoke(new object[]
                     {
                         this.mainUnitOfWork, this.writer
+                    }) as ICommand;
+                    return command;
+                }
+
+                constructor = commandTypeInfo.GetConstructor(new Type[] {
+                    typeof(IMainUnitOfWork),
+                    typeof(IWriter),
+                    typeof(IJsonImporter)
+                });
+                if (constructor != null)
+                {
+                    ICommand command = constructor.Invoke(new object[]
+                    {
+                        this.mainUnitOfWork, this.writer, this.jsonImporter
                     }) as ICommand;
                     return command;
                 }

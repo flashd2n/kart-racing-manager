@@ -44,6 +44,8 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandFactory.cs" />
     <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Imports\IXmlImporter.cs" />
+    <Compile Include="Imports\IJsonImporter.cs" />
     <Compile Include="Imports\IImporter.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

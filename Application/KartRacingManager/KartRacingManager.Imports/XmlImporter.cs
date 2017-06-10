@@ -1,16 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using KartRacingManager.Interfaces.Imports;
 
 namespace KartRacingManager.Imports
 {
-    public class XmlImporter : Importer
+    public class XmlImporter : Importer, IXmlImporter
     {
-
-        public XmlImporter(string path) : base(path)
-        {
-        }
-
         public override Dictionary<string, string> Execute()
         {
             var doc = XDocument.Load(this.Path);
