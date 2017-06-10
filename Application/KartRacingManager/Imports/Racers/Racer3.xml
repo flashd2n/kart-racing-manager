@@ -5,6 +5,8 @@
   <firstName>ivan</firstName>
   <lastName>ivana</lastName>
   <dateOfBirth>2015-05-06</dateOfBirth>
-  <addressId>1</addressId>
+  <addressLocation>Na mainata si kvartal pichki</addressLocation>
+  <city>Pichkovtsi</city>
+  <country>Absurdistan</country>
 
 </racer>

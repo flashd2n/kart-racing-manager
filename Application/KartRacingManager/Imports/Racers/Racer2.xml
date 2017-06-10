@@ -5,6 +5,8 @@
   <firstName>Mincho</firstName>
   <lastName>Minchev</lastName>
   <dateOfBirth>2015-11-05</dateOfBirth>
-  <addressId>2</addressId>
+  <addressLocation>Na mainata si kvartal</addressLocation>
+  <city>Pichkovtsi</city>
+  <country>Absurdistan</country>
 
 </racer>

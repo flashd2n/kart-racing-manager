@@ -67,6 +67,7 @@
     <Compile Include="Commands\GetRacerInformationCommand.cs" />
     <Compile Include="Commands\GetTrackInformationCommand.cs" />
     <Compile Include="Commands\ImportLapCommand.cs" />
+    <Compile Include="Commands\ImportRacerCommand.cs" />
     <Compile Include="Commands\ListKartsCommand.cs" />
     <Compile Include="Commands\ListRacesCommand.cs" />
     <Compile Include="Commands\ListTracksCommand.cs" />

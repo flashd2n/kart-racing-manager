@@ -5,6 +5,7 @@
   <firstName>ivancho</firstName>
   <lastName>ivanov</lastName>
   <dateOfBirth>2002-05-06</dateOfBirth>
-  <addressId>3</addressId>
-
+  <addressLocation>Na mainata si kvartal</addressLocation>
+  <city>Pichkovtsi</city>
+  <country>Absurdistan</country>
 </racer>

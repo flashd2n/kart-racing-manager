@@ -76,6 +76,20 @@ namespace KartRacingManager.Commands
                 }
 
                 constructor = commandTypeInfo.GetConstructor(new Type[] {
+                    typeof(IMainUnitOfWork),
+                    typeof(IWriter),
+                    typeof(IXmlImporter)
+                });
+                if (constructor != null)
+                {
+                    ICommand command = constructor.Invoke(new object[]
+                    {
+                        this.mainUnitOfWork, this.writer, this.xmlImporter
+                    }) as ICommand;
+                    return command;
+                }
+
+                constructor = commandTypeInfo.GetConstructor(new Type[] {
                     typeof(IKartsUnitOfWork),
                     typeof(IWriter)
                 });

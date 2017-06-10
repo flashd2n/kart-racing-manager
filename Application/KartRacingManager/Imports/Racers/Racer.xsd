@@ -7,7 +7,9 @@
         <xsd:element name="firstName" type="xsd:string"/>
         <xsd:element name="lastName" type="xsd:string"/>
         <xsd:element name="dateOfBirth" type="xsd:date"/>
-        <xsd:element name="addressId" type="xsd:integer"/>
+        <xsd:element name="addressLocation" type="xsd:string"/>
+		<xsd:element name="city" type="xsd:string"/>
+		<xsd:element name="country" type="xsd:string"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
