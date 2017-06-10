@@ -44,11 +44,8 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandFactory.cs" />
     <Compile Include="Engine\IEngine.cs" />
-<<<<<<< HEAD
     <Compile Include="Imports\IImporter.cs" />
-=======
     <Compile Include="Logger\ILogger.cs" />
->>>>>>> 0b12f3f6840c1198352873c76276bee3a7ea6771
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\IReader.cs" />
     <Compile Include="Providers\IWriter.cs" />
