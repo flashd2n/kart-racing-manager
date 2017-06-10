@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<track xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="Track.xsd">
+
+  <name>Sample Track</name>
+  <length>5.5</length>
+  <addressId>2</addressId>
+
+</track>

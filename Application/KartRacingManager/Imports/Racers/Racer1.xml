@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<racer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="Racer.xsd">
+  
+  <firstName>ivancho</firstName>
+  <lastName>ivanov</lastName>
+  <dateOfBirth>2002-05-06</dateOfBirth>
+  <addressId>3</addressId>
+
+</racer>

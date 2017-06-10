@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="racer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="firstName" type="xsd:string"/>
+        <xsd:element name="lastName" type="xsd:string"/>
+        <xsd:element name="dateOfBirth" type="xsd:date"/>
+        <xsd:element name="addressId" type="xsd:integer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
