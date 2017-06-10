@@ -84,6 +84,14 @@
     <Compile Include="Interfaces\IMainDbContext.cs" />
     <Compile Include="Interfaces\IMainUnitOfWork.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="PostgreSqlMigrations\201706092234155_transmision_type_name_from_int_to_string.cs" />
+    <Compile Include="PostgreSqlMigrations\201706092234155_transmision_type_name_from_int_to_string.Designer.cs">
+      <DependentUpon>201706092234155_transmision_type_name_from_int_to_string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqliteMigrations\201706092305529_add_log_message.cs" />
+    <Compile Include="SqliteMigrations\201706092305529_add_log_message.Designer.cs">
+      <DependentUpon>201706092305529_add_log_message.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerMigrations\201706091527460_addLapTimeInMs_To_Laps.cs" />
     <Compile Include="SqlServerMigrations\201706091527460_addLapTimeInMs_To_Laps.Designer.cs">
       <DependentUpon>201706091527460_addLapTimeInMs_To_Laps.cs</DependentUpon>
@@ -205,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SqlServerMigrations\201706060838440_AddedRaceName.resx">
       <DependentUpon>201706060838440_AddedRaceName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostgreSqlMigrations\201706092234155_transmision_type_name_from_int_to_string.resx">
+      <DependentUpon>201706092234155_transmision_type_name_from_int_to_string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqliteMigrations\201706092305529_add_log_message.resx">
+      <DependentUpon>201706092305529_add_log_message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SqlServerMigrations\201706091527460_addLapTimeInMs_To_Laps.resx">
       <DependentUpon>201706091527460_addLapTimeInMs_To_Laps.cs</DependentUpon>

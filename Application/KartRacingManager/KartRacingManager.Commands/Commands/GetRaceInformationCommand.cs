@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Bytes2you.Validation;
-using KarRacingManager.Models;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
@@ -75,7 +71,15 @@ namespace KartRacingManager.Commands.Commands
                 this.writer.Write($"Id: {racer.Id} - {racer.FirstName} {racer.LastName}");
                 this.writer.Write(Environment.NewLine);
             }
-            // TODO: Lap information if not tool long
+
+            this.writer.Write($"Race laps:");
+            this.writer.Write(Environment.NewLine);
+            foreach (var lap in race.Laps.OrderBy(lap => lap.FinishTime))
+            {
+                this.writer.Write($"{lap.StartTime} - {lap.FinishTime} {lap.Racer.FirstName} {lap.Racer.LastName}");
+                this.writer.Write(Environment.NewLine);
+            }
+
             this.writer.Write(Environment.NewLine);
         }
     }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4179F467-7937-4DDD-88FB-973B6E4E5EBE}</ProjectGuid>
+    <ProjectGuid>{E06C40D6-72BB-4E32-B954-8614448EF8A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KartRacingManager.Commands</RootNamespace>
-    <AssemblyName>KartRacingManager.Commands</AssemblyName>
+    <RootNamespace>KartRacingManager.Logger</RootNamespace>
+    <AssemblyName>KartRacingManager.Logger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,20 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,33 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddLapCommand.cs" />
-    <Compile Include="CommandFactory.cs" />
-    <Compile Include="Commands\AddKartCommand.cs" />
-    <Compile Include="Commands\AddRaceCommand.cs" />
-    <Compile Include="Commands\AddRacerCommand.cs" />
-    <Compile Include="Commands\AddRacerToRaceCommand.cs" />
-    <Compile Include="Commands\AddTrackCommand.cs" />
-    <Compile Include="Commands\CancelRaceCommand.cs" />
-    <Compile Include="Commands\FinishRaceCommand.cs" />
-    <Compile Include="Commands\GetRaceInformationCommand.cs" />
-    <Compile Include="Commands\GetRacerInformationCommand.cs" />
-    <Compile Include="Commands\GetTrackInformationCommand.cs" />
-    <Compile Include="Commands\ListKartsCommand.cs" />
-    <Compile Include="Commands\ListRacesCommand.cs" />
-    <Compile Include="Commands\ListTracksCommand.cs" />
-    <Compile Include="Commands\SetRacerHeightCommand.cs" />
-    <Compile Include="Commands\EchoCommand.cs" />
-    <Compile Include="Commands\ExitCommand.cs" />
-    <Compile Include="Commands\ListRacersCommand.cs" />
-    <Compile Include="Commands\SetRacerWeightCommand.cs" />
-    <Compile Include="Commands\ShwangShwingCommand.cs" />
-    <Compile Include="Commands\StartRaceCommand.cs" />
+    <Compile Include="SqliteLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KarRacingManager.Models\KarRacingManager.Models.csproj">

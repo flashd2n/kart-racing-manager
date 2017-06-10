@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Engine;
+using KartRacingManager.Interfaces.Logger;
 using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Engine
@@ -13,12 +14,14 @@ namespace KartRacingManager.Engine
         private readonly IReader reader;
         private readonly IWriter writer;
         private readonly ICommandFactory commandFactory;
+        private readonly ILogger logger;
 
-        public ConsoleReadEngine(IReader reader, IWriter writer, ICommandFactory commandFactory)
+        public ConsoleReadEngine(IReader reader, IWriter writer, ICommandFactory commandFactory, ILogger logger)
         {
             this.reader = reader;
             this.writer = writer;
             this.commandFactory = commandFactory;
+            this.logger = logger;
         }
 
         public void Run()
@@ -45,11 +48,12 @@ namespace KartRacingManager.Engine
                     try
                     {
                         command.Execute(commandParts.ToArray());
+                        this.logger.Log("info", $"Command execution {commandLine}.", null);
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         this.writer.Write("Command execution error.");
-                        // TODO: log
+                        this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}", null);
                         this.writer.Write(Environment.NewLine);
                     }
                 }
@@ -62,6 +66,7 @@ namespace KartRacingManager.Engine
                 if (command == null)
                 {
                     writer.Write($"Unrecognized command \"{commandName}\"");
+                    this.logger.Log("info", $"Unrecognized command \"{commandName}\".", null);
                     writer.Write(Environment.NewLine);
                 }
             }

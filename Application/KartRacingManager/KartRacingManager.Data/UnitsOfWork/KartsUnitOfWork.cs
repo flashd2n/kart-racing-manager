@@ -15,7 +15,7 @@ namespace KartRacingManager.Data
             this.context = context;
         }
 
-        public KartsRepository RacersRepo
+        public KartsRepository KartsRepo
         {
             get
             {
