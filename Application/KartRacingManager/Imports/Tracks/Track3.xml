@@ -4,6 +4,8 @@
 
   <name>Some Other Track</name>
   <length>8.5</length>
-  <addressId>3</addressId>
+  <addressLocation>Na mainata si kvartal pichki</addressLocation>
+  <city>Pichkovtsi</city>
+  <country>Absurdistan</country>
 
 </track>

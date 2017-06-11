@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Bytes2you.Validation;
 using KarRacingManager.Models;
 using KartRacingManager.Data.Interfaces;
@@ -9,14 +12,14 @@ using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Commands.Commands
 {
-    public class ImportRacerCommand : ICommand
-
+    public class ImportTrackCommand : ICommand
     {
+
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
         private readonly IXmlImporter xmlImporter;
 
-        public ImportRacerCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IXmlImporter xmlImporter)
+        public ImportTrackCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IXmlImporter xmlImporter)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
@@ -38,25 +41,24 @@ namespace KartRacingManager.Commands.Commands
 
             this.xmlImporter.Path = commandParameters[0];
 
-            var importedRacer = this.xmlImporter.Execute();
+            var importedTrack = this.xmlImporter.Execute();
 
-            string firstName = importedRacer["firstName"];
-            string lastName = importedRacer["lastName"];
-            DateTime dateOfBirth;
+            string trackName = importedTrack["name"];
+            double trackLength;
             try
             {
-                dateOfBirth = DateTime.Parse(importedRacer["dateOfBirth"]);
+                trackLength = double.Parse(importedTrack["length"]);
             }
             catch (FormatException)
             {
-                this.writer.Write("Incorrect date format");
+                this.writer.Write("Track length should be a number.");
                 this.writer.Write(Environment.NewLine);
                 return;
             }
 
-            string addressLocation = importedRacer["addressLocation"];
-            string cityName = importedRacer["city"];
-            string countryName = importedRacer["country"];
+            string addressLocation = importedTrack["addressLocation"];
+            string cityName = importedTrack["city"];
+            string countryName = importedTrack["country"];
 
             var country = this.mainUnitOfWork.CountriesRepo.All
                 .FirstOrDefault(c => c.Name.ToLower() == countryName.ToLower());
@@ -87,15 +89,14 @@ namespace KartRacingManager.Commands.Commands
                 address.City = city;
             }
 
-            var racer = new Racer
+            var track = new Track
             {
-                FirstName = firstName,
-                LastName = lastName,
-                DateOfBirth = dateOfBirth,
+                Name = trackName,
+                Length = trackLength,
                 Address = address
             };
 
-            this.mainUnitOfWork.RacersRepo.Add(racer);
+            this.mainUnitOfWork.TracksRepo.Add(track);
             this.mainUnitOfWork.Save();
         }
     }

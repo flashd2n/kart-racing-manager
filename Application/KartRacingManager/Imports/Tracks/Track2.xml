@@ -4,6 +4,8 @@
 
   <name>Sample Track</name>
   <length>5.5</length>
-  <addressId>2</addressId>
+  <addressLocation>Na mainata si kvartal pichki</addressLocation>
+  <city>Pichkovtsi</city>
+  <country>Absurdistan</country>
 
 </track>
