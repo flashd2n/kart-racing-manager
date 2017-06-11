@@ -63,55 +63,44 @@ namespace KartRacingManager.Commands.Commands
                 return;
             }
 
+            var raceInfo = RaceInfoToDictionary(race, raceId);
 
-            this.writer.Write($"Race: {race.Name}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"State: {race.RaceStatus}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"Start time: {race.StartTime}");
-            this.writer.Write(Environment.NewLine);
-            string endTimeAsString = race.EndTime != null ? race.EndTime.ToString() : "N/A";
-            this.writer.Write($"End time: {endTimeAsString}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"Laps: {race.LapCount}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"Track: {race.Track.Name}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"Racers:");
-            this.writer.Write(Environment.NewLine);
-            foreach (var racer in race.Racers)
-            {
-                this.writer.Write($"Id: {racer.Id} - {racer.FirstName} {racer.LastName}");
-                this.writer.Write(Environment.NewLine);
-            }
-
-            this.writer.Write($"Race laps:");
-            this.writer.Write(Environment.NewLine);
-            foreach (var lap in race.Laps.OrderBy(lap => lap.FinishTime))
-            {
-                this.writer.Write($"{lap.StartTime} - {lap.FinishTime} {lap.Racer.FirstName} {lap.Racer.LastName}");
-                this.writer.Write(Environment.NewLine);
-            }
-
-            this.writer.Write(Environment.NewLine);
+            this.exporter.ExportRaceInfo(raceInfo);
         }
-
-
 
         private Dictionary<string, string> RaceInfoToDictionary(Race race, int raceId)
         {
 
-            var raceInfo = new Dictionary<string, string>();
+            var racers = new List<string>();
+            foreach (var racer in race.Racers)
+            {   
+                racers.Add($"{racer.Id} - {racer.FirstName} {racer.LastName}");
 
+            }
+           
+            var raceInfo = new Dictionary<string, string>();
             raceInfo.Add("Race name", race.Name);
             raceInfo.Add("Status", $"{race.RaceStatus}");
             raceInfo.Add("Start time", $"{race.StartTime}");
             raceInfo.Add("End time", $"{race.EndTime}");
             raceInfo.Add("Laps", $"{race.LapCount}");
             raceInfo.Add("Track", $"{race.Track.Name}");
-            raceInfo.Add("Racers", String.Join("/n  ", race.Racers));
+            raceInfo.Add("Racers", string.Join("\n  ", racers));
+             
+            return RenameEmptyString(raceInfo);
+        }
 
-            return raceInfo;
+        private Dictionary<string, string> RenameEmptyString(Dictionary<string, string> information)
+        {
+            foreach (var key in information.Keys.ToList())
+            {
+                if (String.IsNullOrEmpty(information[key]) || information[key] == "")
+                {
+                    information[key] = "N/A";
+                }
+            }
+
+            return information;
         }
     }
 }

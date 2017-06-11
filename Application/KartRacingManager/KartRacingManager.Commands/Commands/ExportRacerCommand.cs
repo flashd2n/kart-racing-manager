@@ -65,7 +65,7 @@ namespace KartRacingManager.Commands.Commands
 
             var racerInfo = RacerInfoToDictionary(racer, racerId);
 
-            this.exporter.ExportRacer(racerInfo);
+            this.exporter.ExportRacerInfo(racerInfo);
         }
 
 
@@ -77,7 +77,7 @@ namespace KartRacingManager.Commands.Commands
             int numberOfLaps = this.mainUnitOfWork.LapsRepo.All.Count(lap => lap.RacerId == racerId);
 
             var racerInfo = new Dictionary<string, string>();
-
+            
             racerInfo.Add("First name", racer.FirstName);
             racerInfo.Add("Last name", racer.LastName);
             racerInfo.Add("Date of birth", $"{racer.DateOfBirth.Day}-{racer.DateOfBirth.Month}-{racer.DateOfBirth.Year}");

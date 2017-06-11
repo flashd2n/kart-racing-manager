@@ -8,8 +8,8 @@ namespace KartRacingManager.Interfaces.Exports
 {
     public interface IExporter
     {
-        void ExportRacer(Dictionary<string, string> racerInfo);
+        void ExportRacerInfo(Dictionary<string, string> racerInfo);
 
-        void ExportRace(Dictionary<string, string> raceInfo);
+        void ExportRaceInfo(Dictionary<string, string> raceInfo);
     }
 }
