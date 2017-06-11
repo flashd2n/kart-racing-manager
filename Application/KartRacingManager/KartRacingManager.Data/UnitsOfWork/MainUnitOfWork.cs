@@ -1,9 +1,10 @@
 ﻿using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Data.Repositories;
+using System;
 
 namespace KartRacingManager.Data
 {
-    public class MainUnitOfWork : IMainUnitOfWork, IUnitOfWork
+    public class MainUnitOfWork : IMainUnitOfWork, IUnitOfWork, IDisposable
     {
         private IMainDbContext context;
 
@@ -102,6 +103,11 @@ namespace KartRacingManager.Data
                 }
                 return this.tracksRepo;
             }
+        }
+
+        public void Dispose()
+        {
+            this.context.Dispose();
         }
 
         public void Save()

@@ -8,7 +8,7 @@ namespace KartRacingManager.Data
     {
         public MainDbContext() : base("MainKartDb")
         {
-
+            
         }
 
         public IDbSet<Racer> Racers { get; set; }

@@ -10,5 +10,7 @@ namespace KartRacingManager.Data.Interfaces
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
         int SaveChanges();
+
+        void Dispose();
     }
 }

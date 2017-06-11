@@ -38,7 +38,12 @@ namespace KartRacingManager.Data
                 return this.transmissionTypesRepo;
             }
         }
-        
+
+        public void Dispose()
+        {
+            this.context.Dispose();
+        }
+
         public void Save()
         {
             this.context.SaveChanges();

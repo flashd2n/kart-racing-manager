@@ -39,6 +39,11 @@ namespace KartRacingManager.Data
             }
         }
 
+        public void Dispose()
+        {
+            this.context.Dispose();
+        }
+
         public void Save()
         {
             this.context.SaveChanges();
