@@ -23,6 +23,13 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
+            if (commandParameters.Length <= 0)
+            {
+                this.writer.Write("SetRacerWeight racer_id racer_weight");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
             if (commandParameters.Length < 2)
             {
                 this.writer.Write("Incorrect number of parameters.");

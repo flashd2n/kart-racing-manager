@@ -24,6 +24,13 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
+            if (commandParameters.Length <= 0)
+            {
+                this.writer.Write("GetRacerInformation racer_id");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
             if (commandParameters.Length < 1)
             {
                 this.writer.Write("Racer id is not provided.");

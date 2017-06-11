@@ -27,6 +27,13 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
+            if (commandParameters.Length <= 0)
+            {
+                this.writer.Write("AddKart horsepower top_speed_in_km transmission_type");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
             if (commandParameters.Length < 3)
             {
                 this.writer.Write("Incorrect number of parameters.");

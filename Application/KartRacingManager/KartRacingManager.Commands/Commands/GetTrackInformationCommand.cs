@@ -24,6 +24,13 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
+            if (commandParameters.Length <= 0)
+            {
+                this.writer.Write("GetTrackInformation track_id");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
             if (commandParameters.Length < 1)
             {
                 this.writer.Write("Track id is not provided.");

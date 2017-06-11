@@ -25,6 +25,13 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
+            if (commandParameters.Length <= 0)
+            {
+                this.writer.Write("AddTrack track_name track_length address_location city country");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
             if (commandParameters.Length < 5)
             {
                 this.writer.Write("Incorrect number of parameters.");

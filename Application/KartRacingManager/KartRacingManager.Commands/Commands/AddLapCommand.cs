@@ -23,7 +23,14 @@ namespace KartRacingManager.Commands
 
         public void Execute(params string[] commandParameters)
         {
-            if (commandParameters.Length < 3)
+            if (commandParameters.Length <= 0)
+            {
+                this.writer.Write("AddLap lap_start_time lap_finish_time|lap_duration_in_ms racer_id track_id [race_id]");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
+            if (commandParameters.Length < 4)
             {
                 this.writer.Write("Incorrect number of parameters.");
                 this.writer.Write(Environment.NewLine);
