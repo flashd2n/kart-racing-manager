@@ -14,12 +14,10 @@ namespace KartRacingManager.Exports
 
         public void ExportRacerInfo(Dictionary<string, string> racerInfo)
         {
-
             string fileName = "Information about " + racerInfo["First name"] + " "  + racerInfo["Last name"];
 
             GeneratePdfDocument(fileName, racersExportPath, racerInfo); 
         }
-
 
         public void ExportRaceInfo(Dictionary<string, string> raceInfo)
         {
@@ -45,7 +43,8 @@ namespace KartRacingManager.Exports
 
             XTextFormatter textFormatter = new XTextFormatter(gfx);
 
-            gfx.DrawRectangle(XBrushes.SeaShell, infoRect);
+            gfx.DrawRectangle(XBrushes.WhiteSmoke, infoRect);
+
             textFormatter.DrawString($"{fileName}:", headingFont, XBrushes.Bisque, titleRect, XStringFormats.TopLeft);
 
             foreach (KeyValuePair<string, string> entry in information)

@@ -87,7 +87,22 @@ namespace KartRacingManager.Commands.Commands
             racerInfo.Add("Number of races", $"{numberOfCompletedRaces}");
             racerInfo.Add("Number of laps", $"{numberOfLaps}");
 
+            racerInfo = RenameEmptyValues(racerInfo);
+
             return racerInfo;
+        }
+
+        private Dictionary<string, string> RenameEmptyValues(Dictionary<string, string> information)
+        {
+            foreach (var key in information.Keys.ToList())
+            {
+                if (String.IsNullOrEmpty(information[key]) || information[key] == "")
+                {
+                    information[key] = "N/A";
+                }
+            }
+
+            return information;
         }
     }
 }

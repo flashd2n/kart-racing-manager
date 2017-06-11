@@ -73,34 +73,29 @@ namespace KartRacingManager.Commands.Commands
 
             var racers = new List<string>();
             foreach (var racer in race.Racers)
-            {   
+            {
                 racers.Add($"{racer.Id} - {racer.FirstName} {racer.LastName}");
 
             }
-           
+
+            string startTime = $"{race.StartTime.Value.Day}-{race.StartTime.Value.Month}-{race.StartTime.Value.Year}";
+
+            string endTime = "N/A";
+            if (race.RaceStatus == RaceStatus.Completed)
+            {
+                endTime = $"{race.EndTime.Value.Day}-{race.EndTime.Value.Month}-{race.EndTime.Value.Year}";
+            }
+
             var raceInfo = new Dictionary<string, string>();
             raceInfo.Add("Race name", race.Name);
             raceInfo.Add("Status", $"{race.RaceStatus}");
-            raceInfo.Add("Start time", $"{race.StartTime}");
-            raceInfo.Add("End time", $"{race.EndTime}");
+            raceInfo.Add("Start time", startTime);
+            raceInfo.Add("End time", endTime);
             raceInfo.Add("Laps", $"{race.LapCount}");
             raceInfo.Add("Track", $"{race.Track.Name}");
             raceInfo.Add("Racers", string.Join("\n  ", racers));
-             
-            return RenameEmptyString(raceInfo);
-        }
 
-        private Dictionary<string, string> RenameEmptyString(Dictionary<string, string> information)
-        {
-            foreach (var key in information.Keys.ToList())
-            {
-                if (String.IsNullOrEmpty(information[key]) || information[key] == "")
-                {
-                    information[key] = "N/A";
-                }
-            }
-
-            return information;
+            return raceInfo;
         }
     }
 }
