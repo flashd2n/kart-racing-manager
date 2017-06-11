@@ -48,12 +48,12 @@ namespace KartRacingManager.Engine
                     try
                     {
                         command.Execute(commandParts.ToArray());
-                        this.logger.Log("info", $"Command execution {commandLine}.", null);
+                        this.logger.Log("info", $"Command execution {commandLine}.");
                     }
                     catch (Exception e)
                     {
                         this.writer.Write("Command execution error.");
-                        this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}", null);
+                        this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}");
                         this.writer.Write(Environment.NewLine);
                     }
                 }
@@ -66,7 +66,7 @@ namespace KartRacingManager.Engine
                 if (command == null)
                 {
                     writer.Write($"Unrecognized command \"{commandName}\"");
-                    this.logger.Log("info", $"Unrecognized command \"{commandName}\".", null);
+                    this.logger.Log("info", $"Unrecognized command \"{commandName}\".");
                     writer.Write(Environment.NewLine);
                 }
             }

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ConsoleReader.cs" />
     <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="DateTimeProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using KarRacingManager.Models;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Interfaces.Commands;
+using KartRacingManager.Interfaces.Exports;
 using KartRacingManager.Interfaces.Providers;
 using System;
 using System.Linq;
@@ -12,11 +13,13 @@ namespace KartRacingManager.Commands.Commands
     {
         private readonly IMainUnitOfWork mainUnitOfWork;
         private readonly IWriter writer;
+        private readonly IExporter exporter;
 
-        public ExportRacerCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public ExportRacerCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IExporter exporter)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            //Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;

@@ -3,19 +3,22 @@ using System.Linq;
 using KarRacingManager.Models.SqliteModels;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Interfaces.Logger;
+using KartRacingManager.Interfaces.Providers;
 
 namespace KartRacingManager.Logger
 {
     public class SqliteLogger : ILogger
     {
         private readonly ILogsUnitOfWork logsUnitOfWork;
+        private readonly IDateTimeProvider datetimeProvider;
 
-        public SqliteLogger(ILogsUnitOfWork logsUnitOfWork)
+        public SqliteLogger(ILogsUnitOfWork logsUnitOfWork, IDateTimeProvider datetimeProvider)
         {
             this.logsUnitOfWork = logsUnitOfWork;
+            this.datetimeProvider = datetimeProvider;
         }
 
-        public void Log(string logType, string logMessage, DateTime? logTime)
+        public void Log(string logType, string logMessage)
         {
             if (logType == null)
             {
@@ -32,6 +35,8 @@ namespace KartRacingManager.Logger
             {
                 logTypeObj = new LogType {Name = logType};
             }
+
+            var logTime = this.datetimeProvider.UtcNow;
 
             var log = new Log
             {
