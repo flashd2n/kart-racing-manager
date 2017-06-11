@@ -1,9 +1,11 @@
 ﻿using Bytes2you.Validation;
+using KarRacingManager.Models;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Exports;
 using KartRacingManager.Interfaces.Providers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace KartRacingManager.Commands.Commands
@@ -18,7 +20,7 @@ namespace KartRacingManager.Commands.Commands
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
-            //Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
+            Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
@@ -61,6 +63,7 @@ namespace KartRacingManager.Commands.Commands
                 return;
             }
 
+
             this.writer.Write($"Race: {race.Name}");
             this.writer.Write(Environment.NewLine);
             this.writer.Write($"State: {race.RaceStatus}");
@@ -91,6 +94,24 @@ namespace KartRacingManager.Commands.Commands
             }
 
             this.writer.Write(Environment.NewLine);
+        }
+
+
+
+        private Dictionary<string, string> RaceInfoToDictionary(Race race, int raceId)
+        {
+
+            var raceInfo = new Dictionary<string, string>();
+
+            raceInfo.Add("Race name", race.Name);
+            raceInfo.Add("Status", $"{race.RaceStatus}");
+            raceInfo.Add("Start time", $"{race.StartTime}");
+            raceInfo.Add("End time", $"{race.EndTime}");
+            raceInfo.Add("Laps", $"{race.LapCount}");
+            raceInfo.Add("Track", $"{race.Track.Name}");
+            raceInfo.Add("Racers", String.Join("/n  ", race.Racers));
+
+            return raceInfo;
         }
     }
 }

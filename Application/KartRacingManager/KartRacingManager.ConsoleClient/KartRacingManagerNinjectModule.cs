@@ -12,6 +12,7 @@ using KartRacingManager.Providers;
 using KartRacingManager.Logger;
 using Ninject.Modules;
 using KartRacingManager.Interfaces.Exports;
+using KartRacingManager.Exports;
 
 namespace KartRacingManager.ConsoleClient
 {
@@ -33,7 +34,7 @@ namespace KartRacingManager.ConsoleClient
             this.Bind<ILogsDbContext>().To<LogsDbContext>();
             this.Bind<IJsonImporter>().To<JsonImporter>();
             this.Bind<IXmlImporter>().To<XmlImporter>();
-            //this.Bind<IExporter>().To(null);
+            this.Bind<IExporter>().To<PdfExporter>();
         }
     }
 }

@@ -20,21 +20,21 @@ namespace KartRacingManager.Commands
         private readonly IExporter exporter;
 
 
-        public CommandFactory(IMainUnitOfWork mainUnitOfWork, IKartsUnitOfWork kartsUnitOfWork, IWriter writer, IJsonImporter jsonImporter, IXmlImporter xmlImporter/*, IExporter exporter*/)
+        public CommandFactory(IMainUnitOfWork mainUnitOfWork, IKartsUnitOfWork kartsUnitOfWork, IWriter writer, IJsonImporter jsonImporter, IXmlImporter xmlImporter, IExporter exporter)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(kartsUnitOfWork, "kartsUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
             Guard.WhenArgument(jsonImporter, "jsonImporter").IsNull().Throw();
             Guard.WhenArgument(xmlImporter, "xmlImporter").IsNull().Throw();
-            //Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
+            Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
             this.jsonImporter = jsonImporter;
             this.xmlImporter = xmlImporter;
             this.kartsUnitOfWork = kartsUnitOfWork;
-            //this.exporter = exporter;
+            this.exporter = exporter;
         }
 
         public ICommand GetCommand(string commandName)

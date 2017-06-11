@@ -5,6 +5,7 @@ using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Exports;
 using KartRacingManager.Interfaces.Providers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace KartRacingManager.Commands.Commands
@@ -19,10 +20,11 @@ namespace KartRacingManager.Commands.Commands
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
-            //Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
+            Guard.WhenArgument(exporter, "exporter").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
+            this.exporter = exporter;
         }
 
         public void Execute(params string[] commandParameters)
@@ -61,38 +63,31 @@ namespace KartRacingManager.Commands.Commands
                 return;
             }
 
-            // basic info
-            this.writer.Write($"First name: {racer.FirstName}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"Last name: {racer.LastName}");
-            this.writer.Write(Environment.NewLine);
-            this.writer.Write($"Date of birth: {racer.DateOfBirth.Year}-" +
-                              $"{racer.DateOfBirth.Month}-" +
-                              $"{racer.DateOfBirth.Day}");
-            this.writer.Write(Environment.NewLine);
-            // address
-            this.writer.Write($"Full address: {racer.Address.Location}, {racer.Address.City.Name}, {racer.Address.City.Country.Name}");
-            this.writer.Write(Environment.NewLine);
-            // detailed info
-            string heightAsString = racer.DetailedInformation == null || racer.DetailedInformation.Height == null
-                ? "N/A"
-                : racer.DetailedInformation.Height.ToString();
-            this.writer.Write($"Height: {heightAsString}");
-            this.writer.Write(Environment.NewLine);
-            string weightAsString = racer.DetailedInformation == null || racer.DetailedInformation.Weight == null
-                ? "N/A"
-                : racer.DetailedInformation.Weight.ToString();
-            this.writer.Write($"Weight: {weightAsString}");
-            this.writer.Write(Environment.NewLine);
-            // races
+            var racerInfo = RacerInfoToDictionary(racer, racerId);
+
+            this.exporter.ExportRacer(racerInfo);
+        }
+
+
+        private Dictionary<string, string> RacerInfoToDictionary(Racer racer, int racerId)
+        {
             int numberOfCompletedRaces = this.mainUnitOfWork.RacesRepo.All
                 .Count(race => race.RaceStatus == RaceStatus.Completed && race.Racers.Any(r => r.Id == racerId));
-            this.writer.Write($"Number of races: {numberOfCompletedRaces}");
-            this.writer.Write(Environment.NewLine);
-            // number of laps
+
             int numberOfLaps = this.mainUnitOfWork.LapsRepo.All.Count(lap => lap.RacerId == racerId);
-            this.writer.Write($"Total number of laps: {numberOfLaps}");
-            this.writer.Write(Environment.NewLine);
+
+            var racerInfo = new Dictionary<string, string>();
+
+            racerInfo.Add("First name", racer.FirstName);
+            racerInfo.Add("Last name", racer.LastName);
+            racerInfo.Add("Date of birth", $"{racer.DateOfBirth.Day}-{racer.DateOfBirth.Month}-{racer.DateOfBirth.Year}");
+            racerInfo.Add("Address", $"{racer.Address.Location}, {racer.Address.City.Name}, {racer.Address.City.Country.Name}");
+            racerInfo.Add("Height", $"{racer.DetailedInformation.Height}cm");
+            racerInfo.Add("Weight", $"{racer.DetailedInformation.Weight}kg");
+            racerInfo.Add("Number of races", $"{numberOfCompletedRaces}");
+            racerInfo.Add("Number of laps", $"{numberOfLaps}");
+
+            return racerInfo;
         }
     }
 }

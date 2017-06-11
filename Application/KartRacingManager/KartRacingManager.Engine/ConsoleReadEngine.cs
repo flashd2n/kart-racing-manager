@@ -52,7 +52,9 @@ namespace KartRacingManager.Engine
                     }
                     catch (Exception e)
                     {
-                        this.writer.Write("Command execution error.");
+                        this.writer.Write(e.Message);
+                        this.writer.Write(Environment.NewLine);
+                        this.writer.Write("Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev");
                         this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}");
                         this.writer.Write(Environment.NewLine);
                     }
