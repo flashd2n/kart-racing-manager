@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PostgreSqlModels\Kart.cs" />
+    <Compile Include="PostgreSqlModels\KartStatus.cs" />
     <Compile Include="PostgreSqlModels\TransmissionType.cs" />
     <Compile Include="SqliteModels\Log.cs" />
     <Compile Include="SqliteModels\LogType.cs" />

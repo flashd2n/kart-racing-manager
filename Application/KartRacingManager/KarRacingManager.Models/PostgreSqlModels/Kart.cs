@@ -15,6 +15,8 @@ namespace KarRacingManager.Models.PostgreSqlModels
 
         public double TopSpeedKph { get; set; }
 
+        public KartStatus KartStatus { get; set; }
+
         [ForeignKey("TransmissionType")]
         public int TransmissionTypeId { get; set; }
 

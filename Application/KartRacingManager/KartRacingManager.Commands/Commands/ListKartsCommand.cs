@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Bytes2you.Validation;
-using KarRacingManager.Models.PostgreSqlModels;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
@@ -24,6 +23,13 @@ namespace KartRacingManager.Commands.Commands
 
         public void Execute(params string[] commandParameters)
         {
+            if (this.kartsUnitOfWork.KartsRepo.All.Count() <= 0)
+            {
+                this.writer.Write("No karts are found");
+                this.writer.Write(Environment.NewLine);
+                return;
+            }
+
             foreach (var kart in this.kartsUnitOfWork.KartsRepo.All.ToList())
             {
                 this.writer.Write($"id: {kart.Id}, {kart.HorsePower} hp, top {kart.TopSpeedKph} kph, transmission: {kart.TransmissionType.Name}");
