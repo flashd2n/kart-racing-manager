@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Engine;
 using KartRacingManager.Interfaces.Logger;
 using KartRacingManager.Interfaces.Providers;
+using Bytes2you.Validation;
 
 namespace KartRacingManager.Engine
 {
@@ -18,6 +18,11 @@ namespace KartRacingManager.Engine
 
         public ConsoleReadEngine(IReader reader, IWriter writer, ICommandFactory commandFactory, ILogger logger)
         {
+            Guard.WhenArgument(reader, "reader").IsNull().Throw();
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(commandFactory, "commandFactory").IsNull().Throw();
+            Guard.WhenArgument(logger, "logger").IsNull().Throw();
+
             this.reader = reader;
             this.writer = writer;
             this.commandFactory = commandFactory;
@@ -52,8 +57,6 @@ namespace KartRacingManager.Engine
                     }
                     catch (Exception e)
                     {
-                        this.writer.Write(e.Message);
-                        this.writer.Write(Environment.NewLine);
                         this.writer.Write("Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev");
                         this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}");
                         this.writer.Write(Environment.NewLine);
