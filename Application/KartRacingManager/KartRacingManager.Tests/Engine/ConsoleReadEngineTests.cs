@@ -345,11 +345,12 @@ namespace KartRacingManager.Tests.Engine
         }
         
         [Test]
-        public void RunShouldCallCommandExecuteWithCorrectArgumentOnce_WhenPassedCommandArgumentsHaveNoQuotes()
+        public void RunShouldCallCommandExecuteWithCorrectArgumentOnce_WhenPassedCommandArgumentsHasNoQuotes()
         {
             // Arrange
             var inputExit = "exit";
-            var validCommand = "addracer";
+            var validCommand = "addracer Gosho Goshev 1989-01-27 SvetaTroitsa Sofia Bulgaria";
+            var expectedParameter = new string[] { "Gosho", "Goshev", "1989-01-27", "SvetaTroitsa", "Sofia", "Bulgaria" };
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
@@ -372,55 +373,268 @@ namespace KartRacingManager.Tests.Engine
 
             // Assert
 
-            validCommadMock.Verify(x => x.Execute(It.IsAny<string[]>()), Times.Once);
+            validCommadMock.Verify(x => x.Execute(expectedParameter), Times.Once);
         }
 
         [Test]
         public void RunShouldCallCommandExecuteWithCorrectArgumentOnce_WhenPassedCommandHasOneArgumentWithQuotes()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = "addracer Gosho Goshev 1989-01-27 \"Sveta Troitsa\" Sofia Bulgaria";
+            var expectedParameter = new string[] { "Gosho", "Goshev", "1989-01-27", "Sveta Troitsa", "Sofia", "Bulgaria" };
 
+            var readerStub = new Mock<IReader>();
+            var writerStub = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerStub = new Mock<ILogger>();
+
+            var validCommadMock = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadMock.Setup(x => x.Execute(It.IsAny<string[]>()));
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadMock.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerStub.Object, commandFactoryStub.Object, loggerStub.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            validCommadMock.Verify(x => x.Execute(expectedParameter), Times.Once);
         }
 
         [Test]
         public void RunShouldCallCommandExecuteWithCorrectArgumentOnce_WhenPassedCommandHasOneArgumentWithQuotesAndEscapedQuoteInside()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = @"addracer Gosho Goshev 1989-01-27 ""\""Sveta\"" Troitsa"" Sofia Bulgaria";
+            var expectedParameter = new string[] { "Gosho", "Goshev", "1989-01-27", "\"Sveta\" Troitsa", "Sofia", "Bulgaria" };
 
+            var readerStub = new Mock<IReader>();
+            var writerStub = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerStub = new Mock<ILogger>();
+
+            var validCommadMock = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadMock.Setup(x => x.Execute(It.IsAny<string[]>()));
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadMock.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerStub.Object, commandFactoryStub.Object, loggerStub.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            validCommadMock.Verify(x => x.Execute(expectedParameter), Times.Once);
         }
 
         [Test]
         public void RunShouldCallCommandExecuteWithCorrectArgumentOnce_WhenPassedCommandHasOneArgumentWithQuotesAndEscapedSlashInside()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = @"addracer Gosho Goshev 1989-01-27 ""Sveta \\ Troitsa"" Sofia Bulgaria";
+            var expectedParameter = new string[] { "Gosho", "Goshev", "1989-01-27", "Sveta \\ Troitsa", "Sofia", "Bulgaria" };
 
+            var readerStub = new Mock<IReader>();
+            var writerStub = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerStub = new Mock<ILogger>();
+
+            var validCommadMock = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadMock.Setup(x => x.Execute(It.IsAny<string[]>()));
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadMock.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerStub.Object, commandFactoryStub.Object, loggerStub.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            validCommadMock.Verify(x => x.Execute(expectedParameter), Times.Once);
         }
 
         [Test]
         public void RunShouldCallCommandExecuteWithCorrectArgumentOnce_WhenPassedCommandHasAllArgumentsWithQuotes()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = "addracer \"Gosho\" \"Goshev\" \"1989-01-27\" \"Sveta Troitsa\" \"Sofia\" \"Bulgaria\"";
+            var expectedParameter = new string[] { "Gosho", "Goshev", "1989-01-27", "Sveta Troitsa", "Sofia", "Bulgaria" };
 
+            var readerStub = new Mock<IReader>();
+            var writerStub = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerStub = new Mock<ILogger>();
+
+            var validCommadMock = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadMock.Setup(x => x.Execute(It.IsAny<string[]>()));
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadMock.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerStub.Object, commandFactoryStub.Object, loggerStub.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            validCommadMock.Verify(x => x.Execute(expectedParameter), Times.Once);
         }
 
         [Test]
         public void RunShouldLogCommandExecution_WhenPassedValidCommandFromConsole()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = "addracer";
+            var logType = "info";
+            var expectedOutput = $"Command execution {validCommand}.";
 
+            var readerStub = new Mock<IReader>();
+            var writerStub = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerMock = new Mock<ILogger>();
+
+            var validCommadStub = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadStub.Setup(x => x.Execute(It.IsAny<string[]>()));
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadStub.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerStub.Object, commandFactoryStub.Object, loggerMock.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            loggerMock.Verify(x => x.Log(logType, expectedOutput), Times.Once);
         }
 
         [Test]
         public void RunShouldWriteErrorMessage_WhenCommandThrows()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = "addracer";
+            var expectedOutput = "Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev";
 
+            var readerStub = new Mock<IReader>();
+            var writerMock = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerStub = new Mock<ILogger>();
+
+            var validCommadStub = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadStub.Setup(x => x.Execute(It.IsAny<string[]>())).Throws(new Exception());
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadStub.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerMock.Object, commandFactoryStub.Object, loggerStub.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            writerMock.Verify(x => x.Write(expectedOutput), Times.Once);
         }
 
         [Test]
         public void RunShouldWriteErrorMessageAndNewLine_WhenCommandThrows()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = "addracer";
+            var expectedOutput = "Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev";
 
+            var readerStub = new Mock<IReader>();
+            var writerMock = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerStub = new Mock<ILogger>();
+
+            var validCommadStub = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+
+            validCommadStub.Setup(x => x.Execute(It.IsAny<string[]>())).Throws(new Exception());
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadStub.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerMock.Object, commandFactoryStub.Object, loggerStub.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            writerMock.Verify(x => x.Write(expectedOutput), Times.Once);
+            writerMock.Verify(x => x.Write(Environment.NewLine), Times.Once);
         }
 
         [Test]
         public void RunShouldLogDetailedErrorMessage_WhenCommandThrows()
         {
+            // Arrange
+            var inputExit = "exit";
+            var validCommand = "addracer";
+            var logType = "error";
+            var expectedException = new Exception("Error Message Details");
+            var expectedOutput = $"Command execution error. Full command: {validCommand}. Error: {expectedException.Message}";
 
+            var readerStub = new Mock<IReader>();
+            var writerStub = new Mock<IWriter>();
+            var commandFactoryStub = new Mock<ICommandFactory>();
+            var loggerMock = new Mock<ILogger>();
+
+            var validCommadStub = new Mock<ICommand>();
+            var exitCommandStub = new Mock<ICommand>();
+            
+            validCommadStub.Setup(x => x.Execute(It.IsAny<string[]>())).Throws(expectedException);
+
+            readerStub.SetupSequence(x => x.Read()).Returns(validCommand).Returns(inputExit);
+
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(validCommadStub.Object).Returns(exitCommandStub.Object);
+
+            var sut = new ConsoleReadEngine(readerStub.Object, writerStub.Object, commandFactoryStub.Object, loggerMock.Object);
+
+            // Act
+            sut.Run();
+
+            // Assert
+
+            loggerMock.Verify(x => x.Log(logType, expectedOutput), Times.Once);
+            
         }
 
 
