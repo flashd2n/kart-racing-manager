@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\UnitsOfWork\KartsUnitOfWorkTests.cs" />
+    <Compile Include="Data\UnitsOfWork\LogsUnitOfWorkTests.cs" />
+    <Compile Include="Data\UnitsOfWork\MainUnitOfWorkTests.cs" />
     <Compile Include="Engine\ConsoleReadEngineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +67,10 @@
     <ProjectReference Include="..\KartRacingManager.ConsoleClient\KartRacingManager.ConsoleClient.csproj">
       <Project>{5d7c64dd-9a54-440a-91f0-d0c60de5403b}</Project>
       <Name>KartRacingManager.ConsoleClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Data\KartRacingManager.Data.csproj">
+      <Project>{2772A82F-ABF3-4AFF-ABA4-E30D816D6C35}</Project>
+      <Name>KartRacingManager.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\KartRacingManager.Engine\KartRacingManager.Engine.csproj">
       <Project>{8707CD03-43C1-4B81-88B2-7D221E62131E}</Project>

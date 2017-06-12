@@ -1,4 +1,5 @@
-﻿using KartRacingManager.Data.Interfaces;
+﻿using Bytes2you.Validation;
+using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Data.Repositories;
 using System;
 
@@ -18,6 +19,8 @@ namespace KartRacingManager.Data
 
         public MainUnitOfWork(IMainDbContext context)
         {
+            Guard.WhenArgument(context, "context").IsNull().Throw();
+
             this.context = context;
         }
 
