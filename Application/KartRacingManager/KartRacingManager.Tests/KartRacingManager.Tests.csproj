@@ -57,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KartRacingManager.Commands\KartRacingManager.Commands.csproj">
+      <Project>{4179F467-7937-4DDD-88FB-973B6E4E5EBE}</Project>
+      <Name>KartRacingManager.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KartRacingManager.ConsoleClient\KartRacingManager.ConsoleClient.csproj">
       <Project>{5d7c64dd-9a54-440a-91f0-d0c60de5403b}</Project>
       <Name>KartRacingManager.ConsoleClient</Name>
