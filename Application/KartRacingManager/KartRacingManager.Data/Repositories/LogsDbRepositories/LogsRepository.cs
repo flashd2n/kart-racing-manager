@@ -1,4 +1,5 @@
-﻿using KarRacingManager.Models.SqliteModels;
+﻿using Bytes2you.Validation;
+using KarRacingManager.Models.SqliteModels;
 using KartRacingManager.Data.Interfaces;
 using System.Data.Entity;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace KartRacingManager.Data.Repositories.LogsDbRepositories
 
         public LogsRepository(ILogsDbContext context)
         {
+            Guard.WhenArgument(context, "context").IsNull().Throw();
+
             this.context = context;
         }
 

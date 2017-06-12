@@ -33,6 +33,7 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Moq, Version=4.7.25.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.7.25\lib\net45\Moq.dll</HintPath>
     </Reference>
@@ -49,6 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Repositories\KartDbRepositories\KartsRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\KartDbRepositories\TransmissionTypesRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\LogsDbRepositories\LogsRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\LogsDbRepositories\LogTypesRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\AddressesRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\CitiesRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\CountriesRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\LapsRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\RacersRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\RacesRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\MainDbRepositories\TracksRepositoryTests.cs" />
     <Compile Include="Data\UnitsOfWork\KartsUnitOfWorkTests.cs" />
     <Compile Include="Data\UnitsOfWork\LogsUnitOfWorkTests.cs" />
     <Compile Include="Data\UnitsOfWork\MainUnitOfWorkTests.cs" />
@@ -60,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KarRacingManager.Models\KarRacingManager.Models.csproj">
+      <Project>{3D3DAB09-6B82-4751-8355-8C1B40F66E10}</Project>
+      <Name>KarRacingManager.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KartRacingManager.Commands\KartRacingManager.Commands.csproj">
       <Project>{4179F467-7937-4DDD-88FB-973B6E4E5EBE}</Project>
       <Name>KartRacingManager.Commands</Name>
@@ -92,5 +108,6 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

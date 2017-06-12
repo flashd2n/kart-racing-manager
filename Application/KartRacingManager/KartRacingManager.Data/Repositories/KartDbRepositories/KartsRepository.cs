@@ -1,4 +1,5 @@
-﻿using KarRacingManager.Models.PostgreSqlModels;
+﻿using Bytes2you.Validation;
+using KarRacingManager.Models.PostgreSqlModels;
 using KartRacingManager.Data.Interfaces;
 using System.Data.Entity;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace KartRacingManager.Data.Repositories.KartDbRepositories
 
         public KartsRepository(IKartDbContext context)
         {
+            Guard.WhenArgument(context, "context").IsNull().Throw();
+
             this.context = context;
         }
 
