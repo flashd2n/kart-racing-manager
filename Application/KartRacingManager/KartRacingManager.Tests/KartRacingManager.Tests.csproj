@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Configurations\KartsDbConfigContainer.cs" />
+    <Compile Include="Data\Configurations\KartsDbConfigTests.cs" />
+    <Compile Include="Data\Configurations\LogsDbConfigContainer.cs" />
+    <Compile Include="Data\Configurations\LogsDbConfigTests.cs" />
+    <Compile Include="Data\Configurations\MainDbConfigContainer.cs" />
+    <Compile Include="Data\Configurations\MainDbConfigTests.cs" />
     <Compile Include="Data\Repositories\KartDbRepositories\KartsRepositoryTests.cs" />
     <Compile Include="Data\Repositories\KartDbRepositories\TransmissionTypesRepositoryTests.cs" />
     <Compile Include="Data\Repositories\LogsDbRepositories\LogsRepositoryTests.cs" />
