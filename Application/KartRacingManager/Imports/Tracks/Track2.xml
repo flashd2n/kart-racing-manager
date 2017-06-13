@@ -2,10 +2,10 @@
 <track xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="Track.xsd">
 
-  <name>Sample Track</name>
+  <name>Dunev Racing</name>
   <length>5.5</length>
-  <addressLocation>Na mainata si kvartal pichki</addressLocation>
-  <city>Pichkovtsi</city>
-  <country>Absurdistan</country>
+  <addressLocation>Studentski grad</addressLocation>
+  <city>Sofia</city>
+  <country>Bulgaria</country>
 
 </track>

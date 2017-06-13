@@ -2,11 +2,11 @@
 <racer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="Racer.xsd">
   
-  <firstName>Mincho</firstName>
-  <lastName>Minchev</lastName>
+  <firstName>Kalin</firstName>
+  <lastName>Kostov</lastName>
   <dateOfBirth>2015-11-05</dateOfBirth>
-  <addressLocation>Na mainata si kvartal</addressLocation>
-  <city>Pichkovtsi</city>
-  <country>Absurdistan</country>
+  <addressLocation>Sveta Troica</addressLocation>
+  <city>Sofia</city>
+  <country>Bulgaria</country>
 
 </racer>
