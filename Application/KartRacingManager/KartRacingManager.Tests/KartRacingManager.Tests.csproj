@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddKartCommandTests.cs" />
     <Compile Include="Data\Configurations\KartsDbConfigContainer.cs" />
     <Compile Include="Data\Configurations\KartsDbConfigTests.cs" />
     <Compile Include="Data\Configurations\MainDbConfigContainer.cs" />

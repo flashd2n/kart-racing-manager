@@ -10,6 +10,11 @@ namespace KartRacingManager.Data.Repositories.KartDbRepositories
     {
         private IKartDbContext context;
 
+        public TransmissionTypesRepository()
+        {
+
+        }
+
         public TransmissionTypesRepository(IKartDbContext context)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
@@ -17,7 +22,7 @@ namespace KartRacingManager.Data.Repositories.KartDbRepositories
             this.context = context;
         }
 
-        public IQueryable<TransmissionType> All
+        public virtual IQueryable<TransmissionType> All
         {
             get { return this.context.TransmissionTypes; }
         }

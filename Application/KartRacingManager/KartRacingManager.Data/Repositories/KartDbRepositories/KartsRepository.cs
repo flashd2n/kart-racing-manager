@@ -10,6 +10,11 @@ namespace KartRacingManager.Data.Repositories.KartDbRepositories
     {
         private IKartDbContext context;
 
+        public KartsRepository()
+        {
+
+        }
+
         public KartsRepository(IKartDbContext context)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
@@ -22,7 +27,7 @@ namespace KartRacingManager.Data.Repositories.KartDbRepositories
             get { return this.context.Karts; }
         }
 
-        public void Add(Kart entity)
+        public virtual void Add(Kart entity)
         {
             this.context.Karts.Add(entity);
         }
