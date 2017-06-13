@@ -10,6 +10,11 @@ namespace KartRacingManager.Data.Repositories.LogsDbRepositories
     {
         private ILogsDbContext context;
 
+        public LogsRepository()
+        {
+
+        }
+
         public LogsRepository(ILogsDbContext context)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
@@ -22,7 +27,7 @@ namespace KartRacingManager.Data.Repositories.LogsDbRepositories
             get { return this.context.Logs; }
         }
 
-        public void Add(Log entity)
+        public virtual void Add(Log entity)
         {
             this.context.Logs.Add(entity);
         }

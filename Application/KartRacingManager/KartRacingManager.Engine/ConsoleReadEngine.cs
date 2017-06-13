@@ -53,9 +53,9 @@ namespace KartRacingManager.Engine
                 }
                 catch (InvalidOperationException e)
                 {
-                    writer.Write($"Unrecognized command \"{commandName}\"");
+                    this.writer.Write($"Unrecognized command \"{commandName}\"");
                     this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}");
-                    writer.Write(Environment.NewLine);
+                    this.writer.Write(Environment.NewLine);
                 }
 
                 if (command != null)

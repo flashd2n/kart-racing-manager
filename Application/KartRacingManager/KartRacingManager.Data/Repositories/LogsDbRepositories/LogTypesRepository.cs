@@ -10,6 +10,11 @@ namespace KartRacingManager.Data.Repositories.LogsDbRepositories
     {
         private ILogsDbContext context;
 
+        public LogTypesRepository()
+        {
+
+        }
+
         public LogTypesRepository(ILogsDbContext context)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
@@ -17,7 +22,7 @@ namespace KartRacingManager.Data.Repositories.LogsDbRepositories
             this.context = context;
         }
 
-        public IQueryable<LogType> All
+        public virtual IQueryable<LogType> All
         {
             get { return this.context.LogTypes; }
         }

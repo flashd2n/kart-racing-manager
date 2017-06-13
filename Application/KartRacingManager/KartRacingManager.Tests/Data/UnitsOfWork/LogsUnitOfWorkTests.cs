@@ -69,7 +69,6 @@ namespace KartRacingManager.Tests.Data.UnitsOfWork
             // Act
 
             var result = sut.LogTypesRepo;
-
             // Assert
 
             Assert.IsInstanceOf<LogTypesRepository>(result);

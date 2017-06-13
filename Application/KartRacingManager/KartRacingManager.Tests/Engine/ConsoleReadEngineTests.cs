@@ -544,7 +544,7 @@ namespace KartRacingManager.Tests.Engine
             // Arrange
             var inputExit = "exit";
             var validCommand = "addracer";
-            var expectedOutput = "Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev";
+            var expectedOutput = "Oooops :( Something happened :( Please call - SENIOR Engineer Tonchev";
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
@@ -576,7 +576,7 @@ namespace KartRacingManager.Tests.Engine
             // Arrange
             var inputExit = "exit";
             var validCommand = "addracer";
-            var expectedOutput = "Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev";
+            var expectedOutput = "Oooops :( Something happened :( Please call - SENIOR Engineer Tonchev";
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
