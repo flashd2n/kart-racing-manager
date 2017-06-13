@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IModelFactory.cs" />
     <Compile Include="PostgreSqlModels\Kart.cs" />
     <Compile Include="PostgreSqlModels\KartStatus.cs" />
     <Compile Include="PostgreSqlModels\TransmissionType.cs" />

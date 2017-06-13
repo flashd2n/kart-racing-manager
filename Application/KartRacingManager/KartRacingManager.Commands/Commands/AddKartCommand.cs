@@ -8,6 +8,7 @@ using KarRacingManager.Models.PostgreSqlModels;
 using KartRacingManager.Data.Interfaces;
 using KartRacingManager.Interfaces.Commands;
 using KartRacingManager.Interfaces.Providers;
+using KarRacingManager.Models;
 
 namespace KartRacingManager.Commands.Commands
 {
@@ -15,14 +16,17 @@ namespace KartRacingManager.Commands.Commands
     {
         private readonly IKartsUnitOfWork kartsUnitOfWork;
         private readonly IWriter writer;
+        private readonly IModelFactory modelFactory;
 
-        public AddKartCommand(IKartsUnitOfWork kartsUnitOfWork, IWriter writer)
+        public AddKartCommand(IKartsUnitOfWork kartsUnitOfWork, IWriter writer, IModelFactory modelFactory)
         {
             Guard.WhenArgument(kartsUnitOfWork, "kartsUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
 
             this.kartsUnitOfWork = kartsUnitOfWork;
             this.writer = writer;
+            this.modelFactory = modelFactory;
         }
 
         public void Execute(params string[] commandParameters)
@@ -68,16 +72,17 @@ namespace KartRacingManager.Commands.Commands
             string transmissionTypeAsString = commandParameters[2].ToLower();
 
             TransmissionType transmissionType = this.kartsUnitOfWork.TransmissionTypesRepo.All.FirstOrDefault(tt => tt.Name == transmissionTypeAsString);
+
             if (transmissionType == null)
             {
-                transmissionType = new TransmissionType
-                {
-                    Name = transmissionTypeAsString
-                };
+                transmissionType = this.modelFactory.CreateTransmissionType();
+                
+                transmissionType.Name = transmissionTypeAsString;
+                
             }
 
 
-            var kart = new Kart();
+            var kart = this.modelFactory.CreateKart();
             kart.HorsePower = horsepower;
             kart.TopSpeedKph = topSpeedInKph;
             kart.TransmissionType = transmissionType;

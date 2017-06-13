@@ -11,14 +11,17 @@ namespace KartRacingManager.Commands
     {
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
+        private readonly IModelFactory modelFactory;
 
-        public AddLapCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public AddLapCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IModelFactory modelFactory)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(modelFactory, "modelfactory").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
+            this.modelFactory = modelFactory;
         }
 
         public void Execute(params string[] commandParameters)
@@ -142,15 +145,14 @@ namespace KartRacingManager.Commands
                 }
             }
 
-            var lap = new Lap
-            {
-                StartTime = lapStartTime,
-                FinishTime = lapEndTime,
-                LapTimeInMs = lapTimeInMiliseconds,
-                RacerId = racerId,
-                TrackId = trackId,
-                RaceId = raceId
-            };
+            var lap = this.modelFactory.CreateLap();
+
+            lap.StartTime = lapStartTime;
+            lap.FinishTime = lapEndTime;
+            lap.LapTimeInMs = lapTimeInMiliseconds;
+            lap.RacerId = racerId;
+            lap.TrackId = trackId;
+            lap.RaceId = raceId;
 
             this.mainUnitOfWork.LapsRepo.Add(lap);
 

@@ -19,7 +19,7 @@ namespace KartRacingManager.Tests.Engine
 
             IReader reader = null;
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             // Act & Assert
@@ -34,7 +34,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             IWriter writer = null;
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             // Act & Assert
@@ -49,7 +49,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            ICommandFactory commandFactory = null;
+            IAwesomeCommandFactory commandFactory = null;
             var loggerStub = new Mock<ILogger>();
 
             // Act & Assert
@@ -64,7 +64,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             ILogger logger = null;
 
             // Act & Assert
@@ -79,7 +79,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             // Act & Assert
@@ -96,7 +96,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -123,7 +123,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerMock = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -150,7 +150,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryMock = new Mock<ICommandFactory>();
+            var commandFactoryMock = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -178,7 +178,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryMock = new Mock<ICommandFactory>();
+            var commandFactoryMock = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -205,7 +205,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -234,7 +234,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -264,7 +264,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStib = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerMock = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -293,7 +293,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var exitCommandStub = new Mock<ICommand>();
@@ -322,7 +322,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadMock = new Mock<ICommand>();
@@ -354,7 +354,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadMock = new Mock<ICommand>();
@@ -386,7 +386,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadMock = new Mock<ICommand>();
@@ -418,7 +418,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadMock = new Mock<ICommand>();
@@ -450,7 +450,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadMock = new Mock<ICommand>();
@@ -482,7 +482,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadMock = new Mock<ICommand>();
@@ -515,7 +515,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerMock = new Mock<ILogger>();
 
             var validCommadStub = new Mock<ICommand>();
@@ -547,7 +547,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadStub = new Mock<ICommand>();
@@ -579,7 +579,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerMock = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerStub = new Mock<ILogger>();
 
             var validCommadStub = new Mock<ICommand>();
@@ -614,7 +614,7 @@ namespace KartRacingManager.Tests.Engine
 
             var readerStub = new Mock<IReader>();
             var writerStub = new Mock<IWriter>();
-            var commandFactoryStub = new Mock<ICommandFactory>();
+            var commandFactoryStub = new Mock<IAwesomeCommandFactory>();
             var loggerMock = new Mock<ILogger>();
 
             var validCommadStub = new Mock<ICommand>();

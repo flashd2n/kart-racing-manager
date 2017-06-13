@@ -13,14 +13,17 @@ namespace KartRacingManager.Commands.Commands
         
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
+        private readonly IModelFactory modelFactory;
 
-        public AddTrackCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public AddTrackCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IModelFactory modelFactory)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
+            this.modelFactory = modelFactory;
         }
 
         public void Execute(params string[] commandParameters)
@@ -61,7 +64,7 @@ namespace KartRacingManager.Commands.Commands
 
             if (country == null)
             {
-                country = new Country();
+                country = this.modelFactory.CreateCountry();
                 country.Name = countryName;
             }
 
@@ -70,7 +73,7 @@ namespace KartRacingManager.Commands.Commands
 
             if (city == null)
             {
-                city = new City();
+                city = this.modelFactory.CreateCity();
                 city.Name = cityName;
                 city.Country = country;
             }
@@ -80,17 +83,17 @@ namespace KartRacingManager.Commands.Commands
 
             if (address == null)
             {
-                address = new Address();
+                address = this.modelFactory.CreateAddress();
                 address.Location = addressLocation;
                 address.City = city;
             }
 
-            var track = new Track
-            {
-                Name = trackName,
-                Length = trackLength,
-                Address = address
-            };
+            var track = this.modelFactory.CreateTrack();
+
+            track.Name = trackName;
+            track.Length = trackLength;
+            track.Address = address;
+            
 
             this.mainUnitOfWork.TracksRepo.Add(track);
             this.mainUnitOfWork.Save();

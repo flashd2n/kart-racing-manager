@@ -13,10 +13,10 @@ namespace KartRacingManager.Engine
     {
         private readonly IReader reader;
         private readonly IWriter writer;
-        private readonly ICommandFactory commandFactory;
+        private readonly IAwesomeCommandFactory commandFactory;
         private readonly ILogger logger;
 
-        public ConsoleReadEngine(IReader reader, IWriter writer, ICommandFactory commandFactory, ILogger logger)
+        public ConsoleReadEngine(IReader reader, IWriter writer, IAwesomeCommandFactory commandFactory, ILogger logger)
         {
             Guard.WhenArgument(reader, "reader").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();

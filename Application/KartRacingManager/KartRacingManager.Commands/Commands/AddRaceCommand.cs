@@ -13,14 +13,17 @@ namespace KartRacingManager.Commands.Commands
 
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
+        private readonly IModelFactory modelFactory;
 
-        public AddRaceCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public AddRaceCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IModelFactory modelFactory)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
+            this.modelFactory = modelFactory;
         }
 
         public void Execute(params string[] commandParameters)
@@ -90,14 +93,14 @@ namespace KartRacingManager.Commands.Commands
                 return;
             }
 
-            var race = new Race
-            {
-                Name = raceName,
-                TrackId = trackId,
-                StartTime = raceStartTime,
-                LapCount = lapCount,
-                RaceStatus = RaceStatus.Pending
-            };
+            var race = this.modelFactory.CreateRace();
+
+            race.Name = raceName;
+            race.TrackId = trackId;
+            race.StartTime = raceStartTime;
+            race.LapCount = lapCount;
+            race.RaceStatus = RaceStatus.Pending;
+            
 
             this.mainUnitOfWork.RacesRepo.Add(race);
             this.mainUnitOfWork.Save();

@@ -13,14 +13,17 @@ namespace KartRacingManager.Commands.Commands
     {
         private readonly IWriter writer;
         private readonly IMainUnitOfWork mainUnitOfWork;
+        private readonly IModelFactory modelFactory;
 
-        public AddRacerCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer)
+        public AddRacerCommand(IMainUnitOfWork mainUnitOfWork, IWriter writer, IModelFactory modelFactory)
         {
             Guard.WhenArgument(mainUnitOfWork, "mainUnitOfWork").IsNull().Throw();
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
+            Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
 
             this.mainUnitOfWork = mainUnitOfWork;
             this.writer = writer;
+            this.modelFactory = modelFactory;
         }
 
         public void Execute(params string[] commandParameters)
@@ -62,7 +65,7 @@ namespace KartRacingManager.Commands.Commands
 
             if (country == null)
             {
-                country = new Country();
+                country = this.modelFactory.CreateCountry();
                 country.Name = countryName;
             }
 
@@ -71,7 +74,7 @@ namespace KartRacingManager.Commands.Commands
 
             if (city == null)
             {
-                city = new City();
+                city = this.modelFactory.CreateCity();
                 city.Name = cityName;
                 city.Country = country;
             }
@@ -81,18 +84,17 @@ namespace KartRacingManager.Commands.Commands
 
             if (address == null)
             {
-                address = new Address();
+                address = this.modelFactory.CreateAddress();
                 address.Location = addressLocation;
                 address.City = city;
             }
 
-            var racer = new Racer
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                DateOfBirth = dateOfBirth,
-                Address = address
-            };
+            var racer = this.modelFactory.CreateRacer();            
+            racer.FirstName = firstName;
+            racer.LastName = lastName;
+            racer.DateOfBirth = dateOfBirth;
+            racer.Address = address;
+            
 
             this.mainUnitOfWork.RacersRepo.Add(racer);
             this.mainUnitOfWork.Save();
