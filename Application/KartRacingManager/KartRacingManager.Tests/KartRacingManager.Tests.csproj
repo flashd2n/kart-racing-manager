@@ -52,6 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AddKartCommandTests.cs" />
+    <Compile Include="Commands\AddLapCommandTests.cs" />
+    <Compile Include="Commands\AddRaceCommandTests.cs" />
+    <Compile Include="Commands\AddRacerCommandTests.cs" />
+    <Compile Include="Commands\AddRacerToRaceCommandTests.cs" />
+    <Compile Include="Commands\AddTrackCommandTests.cs" />
     <Compile Include="Data\Configurations\KartsDbConfigContainer.cs" />
     <Compile Include="Data\Configurations\KartsDbConfigTests.cs" />
     <Compile Include="Data\Configurations\MainDbConfigContainer.cs" />
