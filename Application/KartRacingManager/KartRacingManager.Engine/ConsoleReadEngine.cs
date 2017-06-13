@@ -45,7 +45,18 @@ namespace KartRacingManager.Engine
 
                 string commandName = commandParts[0];
 
-                ICommand command = this.commandFactory.GetCommand(commandName);
+                ICommand command = null;
+
+                try
+                {
+                    command = this.commandFactory.GetCommand(commandName);
+                }
+                catch (InvalidOperationException e)
+                {
+                    writer.Write($"Unrecognized command \"{commandName}\"");
+                    this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}");
+                    writer.Write(Environment.NewLine);
+                }
 
                 if (command != null)
                 {
@@ -57,7 +68,7 @@ namespace KartRacingManager.Engine
                     }
                     catch (Exception e)
                     {
-                        this.writer.Write("Oooops :( Something happened :( Here is the tech-support phone number - 0893387175 - SENIOR Engineer Tonchev");
+                        this.writer.Write("Oooops :( Something happened :( Please call - SENIOR Engineer Tonchev");
                         this.logger.Log("error", $"Command execution error. Full command: {commandLine}. Error: {e.Message}");
                         this.writer.Write(Environment.NewLine);
                     }
@@ -68,12 +79,12 @@ namespace KartRacingManager.Engine
                     return;
                 }
 
-                if (command == null)
-                {
-                    writer.Write($"Unrecognized command \"{commandName}\"");
-                    this.logger.Log("info", $"Unrecognized command \"{commandName}\".");
-                    writer.Write(Environment.NewLine);
-                }
+                //if (command == null)
+                //{
+                //    writer.Write($"Unrecognized command \"{commandName}\"");
+                //    this.logger.Log("info", $"Unrecognized command \"{commandName}\".");
+                //    writer.Write(Environment.NewLine);
+                //}
             }
         }
 

@@ -70,6 +70,7 @@
     <Compile Include="Data\UnitsOfWork\LogsUnitOfWorkTests.cs" />
     <Compile Include="Data\UnitsOfWork\MainUnitOfWorkTests.cs" />
     <Compile Include="Engine\ConsoleReadEngineTests.cs" />
+    <Compile Include="Logger\SqliteLoggerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +109,10 @@
     <ProjectReference Include="..\KartRacingManager.Interfaces\KartRacingManager.Interfaces.csproj">
       <Project>{cda5cd9f-6e46-40c8-9e04-8c8bf4f5c7b3}</Project>
       <Name>KartRacingManager.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KartRacingManager.Logger\KartRacingManager.Logger.csproj">
+      <Project>{E06C40D6-72BB-4E32-B954-8614448EF8A7}</Project>
+      <Name>KartRacingManager.Logger</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

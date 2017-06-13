@@ -241,7 +241,7 @@ namespace KartRacingManager.Tests.Engine
 
             readerStub.SetupSequence(x => x.Read()).Returns(invalidCommand).Returns(inputExit);
 
-            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(null).Returns(exitCommandStub.Object);
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Throws(new InvalidOperationException()).Returns(exitCommandStub.Object);
 
             var sut = new ConsoleReadEngine(readerStub.Object, writerMock.Object, commandFactoryStub.Object, loggerStub.Object);
 
@@ -259,8 +259,9 @@ namespace KartRacingManager.Tests.Engine
             // Arrange
             var inputExit = "exit";
             var invalidCommand = "inputMe";
-            var expectedOutputMessage = $"Unrecognized command \"{invalidCommand}\".";
-            var logType = "info";
+            var expectedException = new InvalidOperationException($"Command {invalidCommand} not found in the awesome factory");
+            var expectedOutputMessage = $"Command execution error. Full command: {invalidCommand}. Error: {expectedException.Message}";
+            var logType = "error";
 
             var readerStub = new Mock<IReader>();
             var writerStib = new Mock<IWriter>();
@@ -271,7 +272,7 @@ namespace KartRacingManager.Tests.Engine
 
             readerStub.SetupSequence(x => x.Read()).Returns(invalidCommand).Returns(inputExit);
 
-            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(null).Returns(exitCommandStub.Object);
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Throws(expectedException).Returns(exitCommandStub.Object);
 
             var sut = new ConsoleReadEngine(readerStub.Object, writerStib.Object, commandFactoryStub.Object, loggerMock.Object);
 
@@ -300,7 +301,7 @@ namespace KartRacingManager.Tests.Engine
 
             readerStub.SetupSequence(x => x.Read()).Returns(invalidCommand).Returns(inputExit);
 
-            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Returns(null).Returns(exitCommandStub.Object);
+            commandFactoryStub.SetupSequence(x => x.GetCommand(It.IsAny<string>())).Throws(new InvalidOperationException()).Returns(exitCommandStub.Object);
 
             var sut = new ConsoleReadEngine(readerStub.Object, writerMock.Object, commandFactoryStub.Object, loggerStub.Object);
 
